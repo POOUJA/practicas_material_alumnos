@@ -39,12 +39,13 @@ Temazo::Temazo(std::string _titulo
         , std::string _interprete
         , int _duracion
         , std::string _nombreUltimoGarito
-        , const Fecha& fechaUltimoUso
+        , const Fecha& _fechaUltimoUso
         , int _puntuacion) :
 titulo(_titulo)
 , interprete(_interprete)
 , duracion(_duracion)
 , nombreUltimoGarito(_nombreUltimoGarito)
+, fechaUltimoUso(_fechaUltimoUso)
 , puntuacion(_puntuacion) {
     ++numTemazos;
     incrementarPuntuacionTotal(_puntuacion);
