@@ -1,0 +1,5 @@
+Industrial Automation;R2-D2
+Industrial Automation;R2-KT
+AccuTronics;R3-D3
+AccuTronics;R3-KT
+Arakyd Industries;C3PO
