@@ -83,8 +83,6 @@ string Mutante::toCSV ()
 
 Mutante& Mutante::operator = (const Mutante& orig)
 {
-   int i;
-
    if ( this != &orig )
    {
       _nombreReal = orig._nombreReal;

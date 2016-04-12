@@ -15,9 +15,7 @@ EquipoMutante::EquipoMutante ( string nombre, string base ): _nombre(nombre),
                                                              _base(base),
                                                              _numMiembros(0)
 {
-   int i;
-
-   for ( i = 0; i < _MAX_MIEMBROS_; i++ )
+   for ( int i = 0; i < _MAX_MIEMBROS_; i++ )
    {
       _miembros[i] = 0;
    }
@@ -27,11 +25,9 @@ EquipoMutante::EquipoMutante ( const EquipoMutante& orig ): _nombre(orig._nombre
                                                             _base(orig._base),
                                                             _numMiembros(0)
 {
-   int i;
-
-   for ( i = 0; i < _MAX_MIEMBROS_; i++ )
+   for ( int i = 0; i < _MAX_MIEMBROS_; i++ )
    {
-      _miembros[i] = 0;
+      _miembros[i] = orig._miembros[i];
    }
 }
 
@@ -117,12 +113,10 @@ Mutante* EquipoMutante::sacaMutante ( int cual )
 string EquipoMutante::toCSV ()
 {
    std::stringstream aux;
-   int i;
-
    aux << _nombre << " ; "
        << _base;
 
-   for ( i = 0; i < _numMiembros; i++ )
+   for ( int i = 0; i < _numMiembros; i++ )
    {
       aux << " ; " << _miembros[i]->toCSV ();
    }
@@ -132,14 +126,15 @@ string EquipoMutante::toCSV ()
 
 EquipoMutante& EquipoMutante::operator = (const EquipoMutante& orig)
 {
-   int i;
-
    if ( this != &orig )
    {
       _nombre = orig._nombre;
       _base = orig._base;
 
-      // Los miembros del equipo no se copian, ni se modifican los que ya había
+      for ( int i = 0; i < _MAX_MIEMBROS_; i++ )
+      {
+         _miembros[i] = orig._miembros[i];
+      }
    }
 
    return ( *this );
