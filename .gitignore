@@ -1,6 +1,16 @@
-/P_3/build/
-/P_3/dist/
-/P_5_material/build/
-/P_5_material/dist/
-/P_8_PtoPartida/build/
-/P_8_PtoPartida/dist/
+#Netbeans temp dirs
+**/nbproject/private/
+**/build/
+**/nbbuild/
+**/nbdist/
+**/dist/
+**/nbactions.xml
+**/nb-configuration.xml
+**/.nb-gradle/
+
+#Doxygen generated output & temp files
+**/html/
+**/doxygen_sqlite3.db
+
+#sample applications temp files
+**/*.csv
