@@ -6,6 +6,7 @@
  */
 
 #include "Cofre.h"
+#include <stdexcept>
 
 Cofre::Cofre(int cuantosCaben)
     :_maxItems(cuantosCaben)
