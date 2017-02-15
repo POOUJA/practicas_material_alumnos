@@ -1,3 +1,3 @@
-#Práctica 2
+#Práctica 3
 
-Esta práctica no tiene material previo para descargar, por ser la primera de las 4 sesiones que se dedican al programa del DJ Segismundo Bartreces Rofríguez.
+Material de partida para la segunda sesión que se dedica al programa del DJ Segismundo Bartreces Rofríguez.
