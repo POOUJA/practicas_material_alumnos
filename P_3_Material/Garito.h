@@ -11,7 +11,7 @@
 #ifndef GARITO_H
 #define	GARITO_H
 /**
- * @brief Clase para almacenar los datos de un local en el que actúa el DJ  
+ * @brief Clase para almacenar los datos de un local en el que actúa el DJ
  */
 class Garito {
 public:
@@ -23,8 +23,8 @@ public:
     void setNombre(std::string nombre);
     std::string getNombre() const;
 private:
-    std::string nombre; ///< Nombre del local
-    std::string direccion; ///< Dirección del local
+    std::string _nombre; ///< Nombre del local
+    std::string _direccion; ///< Dirección del local
 };
 
 #endif	/* GARITO_H */

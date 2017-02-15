@@ -1,4 +1,4 @@
-/** 
+/**
  * @brief
  * @file djutils.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
@@ -8,28 +8,28 @@
 #include <iostream>
 #include "djutils.h"
 
-
-void djutils::mostrarTemazo(const Temazo& temazo) {
-    std::cout << "TEMAZO: " << std::endl;
-    std::cout << " - Título: " << temazo.getTitulo() << std::endl;
-    std::cout << " - Intérprete: " << temazo.getInterprete() << std::endl;
-    std::cout << " - Duración: " << temazo.getDuracion() << " segundos" << std::endl;
-    std::cout << " - Puntuación: " << temazo.getPuntuacion() << " puntos" << std::endl;
+void djutils::mostrarTemazo(const Temazo& temazo,std::string prefijo) {
+    std::cout << prefijo << "TEMAZO: " << std::endl;
+    std::cout << prefijo << " - Título: " << temazo.getTitulo() << std::endl;
+    std::cout << prefijo << " - Intérprete: " << temazo.getInterprete() << std::endl;
+    std::cout << prefijo << " - Duración: " << temazo.getDuracion() << " segundos" << std::endl;
+    std::cout << prefijo << " - Puntuación: " << temazo.getPuntuacion() << " puntos" << std::endl;
 }
 
-void djutils::mostrarGarito(const Garito& garito) {
-    std::cout << "GARITO: " << std::endl;
-    std::cout << " - Nombre: " << garito.getNombre() << std::endl;
-    std::cout << " - Dirección: " << garito.getDireccion() << std::endl;
+void djutils::mostrarGarito(const Garito& garito,std::string prefijo) {
+    std::cout << prefijo << "GARITO: " << std::endl;
+    std::cout << prefijo << " - Nombre: " << garito.getNombre() << std::endl;
+    std::cout << prefijo << " - Dirección: " << garito.getDireccion() << std::endl;
 }
 
-void djutils::mostrarFecha(const Fecha& fecha) {
-    std::cout << "FECHA: " << std::endl;
-    std::cout << " - Día: " << fecha.getDia() << std::endl;
-    std::cout << " - Mes: " << fecha.getMes() << std::endl;
-    std::cout << " - Año: " << fecha.getAnio() << std::endl;
+void djutils::mostrarFecha(const Fecha& fecha,std::string prefijo) {
+    std::cout << prefijo << "FECHA: " << std::endl;
+    std::cout << prefijo << " - Día: " << fecha.getDia() << std::endl;
+    std::cout << prefijo << " - Mes: " << fecha.getMes() << std::endl;
+    std::cout << prefijo << " - Año: " << fecha.getAnio() << std::endl;
 
 }
+
 void djutils::pedirGarito(Garito& garito) {
     std::string tmp;
     std::cout << "INTRODUZCA LOS DATOS DEL GARITO: " << std::endl;

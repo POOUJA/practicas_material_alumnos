@@ -1,4 +1,4 @@
-/** 
+/**
  * @brief Implementación de los métodos de la clase Temazo
  * @file Temazo.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
@@ -11,10 +11,10 @@
  * @post Crea un objeto de tipo Temazo
  */
 Temazo::Temazo() :
-titulo("")
-, interprete("")
-, duracion(0)
-, puntuacion(0) {
+_titulo("")
+, _interprete("")
+, _duracion(0)
+, _puntuacion(0) {
 }
 
 /**
@@ -26,10 +26,10 @@ titulo("")
  * @post Crea un objeto de tipo Temazo
  */
 Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion) :
-titulo(titulo)
-, interprete(interprete)
-, duracion(duracion)
-, puntuacion(puntuacion) {
+_titulo(titulo)
+, _interprete(interprete)
+, _duracion(duracion)
+, _puntuacion(puntuacion) {
 }
 
 /**
@@ -39,10 +39,10 @@ titulo(titulo)
  */
 
 Temazo::Temazo(const Temazo& orig) :
-titulo(orig.titulo)
-, interprete(orig.interprete)
-, duracion(orig.duracion)
-, puntuacion(orig.puntuacion) {
+_titulo(orig._titulo)
+, _interprete(orig._interprete)
+, _duracion(orig._duracion)
+, _puntuacion(orig._puntuacion) {
 }
 
 /**
@@ -58,7 +58,7 @@ Temazo::~Temazo() {
  * @post  Devuelve la puntuación del temazo
  */
 int Temazo::getPuntuacion() const {
-    return puntuacion;
+    return _puntuacion;
 }
 
 /**
@@ -67,7 +67,7 @@ int Temazo::getPuntuacion() const {
  * @post Modifica la duración del Temazo
  */
 void Temazo::setDuracion(int duracion) {
-    this->duracion = duracion;
+    this->_duracion = duracion;
 }
 
 /**
@@ -75,7 +75,7 @@ void Temazo::setDuracion(int duracion) {
  * @post  Devuelve la duración del temazo
  */
 int Temazo::getDuracion() const {
-    return duracion;
+    return _duracion;
 }
 
 /**
@@ -84,7 +84,7 @@ int Temazo::getDuracion() const {
  * @post Modifica el intérprete del Temazo
  */
 void Temazo::setInterprete(std::string interprete) {
-    this->interprete = interprete;
+    this->_interprete = interprete;
 }
 
 /**
@@ -92,7 +92,7 @@ void Temazo::setInterprete(std::string interprete) {
  * @post  Devuelve el intérprete del temazo
  */
 std::string Temazo::getInterprete() const {
-    return interprete;
+    return _interprete;
 }
 
 /**
@@ -101,7 +101,7 @@ std::string Temazo::getInterprete() const {
  * @post Modifica el título del Temazo
  */
 void Temazo::setTitulo(std::string titulo) {
-    this->titulo = titulo;
+    this->_titulo = titulo;
 }
 
 /**
@@ -109,6 +109,6 @@ void Temazo::setTitulo(std::string titulo) {
  * @post  Devuelve el título del temazo
  */
 std::string Temazo::getTitulo() const {
-    return titulo;
+    return _titulo;
 }
 

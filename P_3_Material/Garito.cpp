@@ -1,4 +1,4 @@
-/** 
+/**
  * @brief Implementación de la clase Garito
  * @file Garito.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
@@ -14,8 +14,8 @@
  * @post Crea un nuevo objeto de la clase Garito
  */
 Garito::Garito(std::string nombre, std::string direccion) :
-nombre(nombre)
-, direccion(direccion) {
+_nombre(nombre)
+, _direccion(direccion) {
 }
 
 /**
@@ -25,8 +25,8 @@ nombre(nombre)
  */
 
 Garito::Garito(const Garito& orig) :
-nombre(orig.nombre)
-, direccion(orig.direccion) {
+_nombre(orig._nombre)
+, _direccion(orig._direccion) {
 }
 
 /**
@@ -42,7 +42,10 @@ Garito::~Garito() {
  * @post Modifica la dirección del Garito
  */
 void Garito::setDireccion(std::string direccion) {
-    this->direccion = direccion;
+   if ( direccion == "" )
+      throw std::string ( "Se intenta asignar una dirección vacía" );
+
+   this->_direccion = direccion;
 }
 
 /**
@@ -50,7 +53,7 @@ void Garito::setDireccion(std::string direccion) {
  * @post Devuelve la dirección del garito
  */
 std::string Garito::getDireccion() const {
-    return direccion;
+    return _direccion;
 }
 
 /**
@@ -59,14 +62,17 @@ std::string Garito::getDireccion() const {
  * @post Modifica el nombre del garito
  */
 void Garito::setNombre(std::string nombre) {
-    this->nombre = nombre;
+   if ( nombre == "" )
+      throw std::string ( "Se intenta asignar una dirección vacía" );
+
+   this->_nombre = nombre;
 }
 
 /**
  * @brief Devuelve el nombre del garito
- * @post Devuelve el nombre del garito 
+ * @post Devuelve el nombre del garito
  */
 std::string Garito::getNombre() const {
-    return nombre;
+    return _nombre;
 }
 

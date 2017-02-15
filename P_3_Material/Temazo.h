@@ -26,10 +26,10 @@ public:
     void setTitulo(std::string titulo);
     std::string getTitulo() const;
 private:
-    std::string titulo; ///< Título de la canción
-    std::string interprete; ///< Intérprete
-    int duracion; ///< Duración en segundos
-    int puntuacion; ///< Puntuación en función de cómo la acoge el público
+    std::string _titulo; ///< Título de la canción
+    std::string _interprete; ///< Intérprete
+    int _duracion; ///< Duración en segundos
+    int _puntuacion; ///< Puntuación en función de cómo la acoge el público
 };
 
 #endif	/* TEMAZO_H */
