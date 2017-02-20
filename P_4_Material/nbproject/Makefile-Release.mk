@@ -37,7 +37,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Fecha.o \
 	${OBJECTDIR}/Garito.o \
-	${OBJECTDIR}/ParametroNoValido.o \
 	${OBJECTDIR}/Temazo.o \
 	${OBJECTDIR}/djutils.o \
 	${OBJECTDIR}/main.o
@@ -67,32 +66,27 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/p_4_material: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/p_4_material ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Fecha.o: Fecha.cpp 
+${OBJECTDIR}/Fecha.o: Fecha.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Fecha.o Fecha.cpp
 
-${OBJECTDIR}/Garito.o: Garito.cpp 
+${OBJECTDIR}/Garito.o: Garito.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Garito.o Garito.cpp
 
-${OBJECTDIR}/ParametroNoValido.o: ParametroNoValido.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParametroNoValido.o ParametroNoValido.cpp
-
-${OBJECTDIR}/Temazo.o: Temazo.cpp 
+${OBJECTDIR}/Temazo.o: Temazo.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Temazo.o Temazo.cpp
 
-${OBJECTDIR}/djutils.o: djutils.cpp 
+${OBJECTDIR}/djutils.o: djutils.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/djutils.o djutils.cpp
 
-${OBJECTDIR}/main.o: main.cpp 
+${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
@@ -103,7 +97,6 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/p_4_material
 
 # Subprojects
 .clean-subprojects:

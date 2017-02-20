@@ -1,44 +1,38 @@
-/** 
- * @brief Implementaci√≥n de los m√©todos de la clase Temazo
+/**
+ * @brief ImplementaciÛn de los mÈtodos de la clase Temazo
  * @file Temazo.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
  * @date 12 de octubre de 2015, 17:08
  */
 #include "Temazo.h"
-#include "ParametroNoValido.h"
-
-
-int Temazo::numTemazos = 0;
-int Temazo::puntuacionTotal = 0;
 
 /**
  * @brief Constructor por defecto de la clase
  * @post Crea un objeto de tipo Temazo
  */
-Temazo::Temazo() :
-titulo("")
-, interprete("")
-, duracion(0)
-, puntuacion(0) {
-    ++numTemazos;
-}
+Temazo::Temazo() : _titulo(""), _interprete(""), _duracion(0),
+                   _nombreUltimoGarito(""), _fechaUltimoUso (),
+                   _puntuacion(0)
+{ }
 
 /**
  * @brief Constructor parametrizado
- * @param titulo T√≠tulo del temazo
+ * @param titulo TÌtulo del temazo
  * @param interprete Persona o grupo que lo interpreta
- * @param duracion Duraci√≥n en segundos
- * @param puntuacion Puntuaci√≥n otorgada por el p√∫blico
+ * @param duracion DuraciÛn en segundos
+ * @param nombreUltimoGarito nombre del ˙ltimo garito en que se escuchÛ
+ * @param fechaUltimoUso fecha en que se escuchÛ el temazo por ˙ltima vez
+ * @param puntuacion PuntuaciÛn otorgada por el p˙blico
  * @post Crea un objeto de tipo Temazo
  */
-Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion) :
-titulo(titulo)
-, interprete(interprete)
-, duracion(duracion)
-, puntuacion(puntuacion) {
-    ++numTemazos;
-    incrementarPuntuacionTotal(puntuacion);
-}
+Temazo::Temazo ( std::string titulo, std::string interprete, int duracion,
+                 std::string nombreUltimoGarito, Fecha fechaUltimoUso,
+                 int puntuacion ): _titulo(titulo), _interprete(interprete),
+                                   _duracion(duracion),
+                                   _nombreUltimoGarito (nombreUltimoGarito),
+                                   _fechaUltimoUso (fechaUltimoUso),
+                                   _puntuacion(puntuacion)
+{ }
 
 /**
  * @brief Constructor de copia de la clase
@@ -46,133 +40,98 @@ titulo(titulo)
  * @post Crea un nuevo objeto por copia
  */
 
-Temazo::Temazo(const Temazo& orig) :
-titulo(orig.titulo)
-, interprete(orig.interprete)
-, duracion(orig.duracion)
-, puntuacion(orig.puntuacion) {
-    ++numTemazos;
-    incrementarPuntuacionTotal(puntuacion);
-}
+Temazo::Temazo ( const Temazo& orig ): _titulo(orig._titulo),
+                                       _interprete(orig._interprete),
+                                       _duracion(orig._duracion),
+                                       _nombreUltimoGarito(orig._nombreUltimoGarito),
+                                       _fechaUltimoUso(orig._fechaUltimoUso),
+                                       _puntuacion(orig._puntuacion)
+{ }
 
 /**
  * @brief Destructor de clase
  * @post Destruye el objeto
  */
-Temazo::~Temazo() {
-    --numTemazos;
-    decrementarPuntuacionTotal(puntuacion);
-}
+Temazo::~Temazo()
+{ }
+
 
 /**
- * @brief Devuelve la puntuaci√≥n del temazo
- * @post  Devuelve la puntuaci√≥n del temazo
+ * @brief Devuelve la puntuaciÛn del temazo
+ * @post  Devuelve la puntuaciÛn del temazo
  */
 int Temazo::getPuntuacion() const {
-    return puntuacion;
+    return _puntuacion;
 }
 
 /**
- * @brief Modifica la duraci√≥n del Temazo
- * @param duracion Nueva duraci√≥n
- * @post Modifica la duraci√≥n del Temazo
+ * @brief Modifica la duraciÛn del Temazo
+ * @param duracion Nueva duraciÛn
+ * @post Modifica la duraciÛn del Temazo
  */
 void Temazo::setDuracion(int duracion) {
-    this->duracion = duracion;
+    this->_duracion = duracion;
 }
 
 /**
- * @brief Devuelve la duraci√≥n del temazo
- * @post  Devuelve la duraci√≥n del temazo
+ * @brief Devuelve la duraciÛn del temazo
+ * @post  Devuelve la duraciÛn del temazo
  */
 int Temazo::getDuracion() const {
-    return duracion;
+    return _duracion;
 }
 
 /**
- * @brief Modifica el int√©rprete del Temazo
- * @param interprete Nuevo int√©rprete
- * @post Modifica el int√©rprete del Temazo
+ * @brief Modifica el intÈrprete del Temazo
+ * @param interprete Nuevo intÈrprete
+ * @post Modifica el intÈrprete del Temazo
  */
 void Temazo::setInterprete(std::string interprete) {
-    this->interprete = interprete;
+    this->_interprete = interprete;
 }
 
 /**
- * @brief Devuelve el int√©rprete del temazo
- * @post  Devuelve el int√©rprete del temazo
+ * @brief Devuelve el intÈrprete del temazo
+ * @post  Devuelve el intÈrprete del temazo
  */
 std::string Temazo::getInterprete() const {
-    return interprete;
+    return _interprete;
 }
 
 /**
- * @brief Modifica el t√≠tulo del Temazo
- * @param titulo Nuevo t√≠tulo
- * @post Modifica el t√≠tulo del Temazo
+ * @brief Modifica el tÌtulo del Temazo
+ * @param titulo Nuevo tÌtulo
+ * @post Modifica el tÌtulo del Temazo
  */
 void Temazo::setTitulo(std::string titulo) {
-    this->titulo = titulo;
+    this->_titulo = titulo;
 }
 
 /**
- * @brief Devuelve el t√≠tulo del temazo
- * @post  Devuelve el t√≠tulo del temazo
+ * @brief Devuelve el tÌtulo del temazo
+ * @post  Devuelve el tÌtulo del temazo
  */
 std::string Temazo::getTitulo() const {
-    return titulo;
+    return _titulo;
 }
 
-/**
- * @brief Incrementa la puntuaci√≥n total
- * @param puntos N√∫mero de puntos para incrementar
- * @post A√±ade a la puntuaci√≥n total los puntos que se indiquen.
- */
-void Temazo::incrementarPuntuacionTotal(int puntos) {
-    puntuacionTotal += puntos;
+void Temazo::setNombreUltimoGarito ( std::string nombreUltimoGarito )
+{
+   this->_nombreUltimoGarito = nombreUltimoGarito;
 }
 
-/**
- * @brief Decrementa la puntuaci√≥n total
- * @param puntos N√∫mero de puntos para decrementar
- * @post Resta a la puntuaci√≥n total los puntos que se indiquen.
- */
-
-void Temazo::decrementarPuntuacionTotal(int puntos) {
-    puntuacionTotal -= puntos;
+std::string Temazo::getNombreUltimoGarito ( ) const
+{
+   return _nombreUltimoGarito;
 }
 
-/**
- * @brief Calcula la media de puntuaci√≥n por temazo
- * @return la media de la puntuaci√≥n por temazo
- */
-
-double Temazo::calcularPuntuacionMedia() {
-    return (numTemazos != 0) ? puntuacionTotal / numTemazos : 0;
+void Temazo::setFechaUltimoUso ( const Fecha& fechaUltimoUso )
+{
+   this->_fechaUltimoUso = fechaUltimoUso;
 }
 
-/**
- * @brief Incrementa la puntuaci√≥n de un temazo
- * @param puntos N√∫mero de puntos para incrementar
- * @thows Excepcion del tipo ParametroNoValido si el valor d epuntos es menor que 0 o mayor que 10.
- * @post A√±ade a la puntuaci√≥n del temazo y a la puntuaci√≥n total los puntos que se indiquen.
- */
-
-void Temazo::incrementarPuntuacion(int puntos) {
-    if( puntos<0 ) throw ParametroNoValido( "Temazo.cpp"
-            , "incrementarPuntuacion"
-            , "El valor de los puntos a incrementar no puede ser menor que 0.");
-     if( puntos>10 ) throw ParametroNoValido( "Temazo.cpp"
-            , "incrementarPuntuacion"
-            , "El valor de los puntos a incrementar no puede ser mayor que 10.");
-    puntuacion += puntos;
-    incrementarPuntuacionTotal(puntos);
+Fecha Temazo::getFechaUltimoUso ( ) const
+{
+   return _fechaUltimoUso;
 }
 
-/**
- * @brief Devuelve true o false en funci√≥n de si el temazo debe estar en la lista de √©xitos del DJ
- * @return Develeuve true si la puntuaci√≥n del tema es mayor o igual que la media; false en otro caso
- */
-bool Temazo::debeEstarEnLaLista() const {
-    return puntuacion>=calcularPuntuacionMedia();
-}

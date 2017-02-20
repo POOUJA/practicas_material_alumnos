@@ -1,7 +1,7 @@
 /**
  * @file Fecha.h
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
- * @desc Clase Fecha para las pr√°cticas de POO
+ * @desc Clase Fecha para las pr·cticas de POO
  * @date 12 de octubre de 2015, 17:08
  */
 
@@ -23,11 +23,16 @@ public:
     int getMes() const;
     void setDia(int dia);
     int getDia() const;
+    bool operator< ( const Fecha &otra );
+    bool operator== ( const Fecha &otra );
+    bool operator<= ( const Fecha &otra );
+    bool operator>= ( const Fecha &otra );
+    bool operator> ( const Fecha &otra );
+    bool operator!= ( const Fecha &otra );
 private:
-    int dia; ///< Dia dentro de un mes
-    int mes; ///< Mes dentro de un a√±o
-    int anio; ///< A√±o de la fecha almacenada
-
+    int _dia; ///< Dia dentro de un mes
+    int _mes; ///< Mes dentro de un aÒo
+    int _anio; ///< AÒo de la fecha almacenada
 };
 
 #endif	/* FECHA_H */

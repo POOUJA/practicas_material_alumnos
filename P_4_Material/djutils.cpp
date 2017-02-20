@@ -1,4 +1,4 @@
-/** 
+/**
  * @brief
  * @file djutils.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
@@ -8,35 +8,51 @@
 #include <iostream>
 #include "djutils.h"
 
-
-void djutils::mostrarTemazo(const Temazo& temazo) {
-    std::cout << "TEMAZO: " << std::endl;
-    std::cout << " - T铆tulo: " << temazo.getTitulo() << std::endl;
-    std::cout << " - Int茅rprete: " << temazo.getInterprete() << std::endl;
-    std::cout << " - Duraci贸n: " << temazo.getDuracion() << " segundos" << std::endl;
-    std::cout << " - Puntuaci贸n: " << temazo.getPuntuacion() << " puntos" << std::endl;
+void djutils::mostrarTemazo(const Temazo& temazo,std::string prefijo) {
+    std::cout << prefijo << "TEMAZO: " << std::endl;
+    std::cout << prefijo << " - T韙ulo: " << temazo.getTitulo() << std::endl;
+    std::cout << prefijo << " - Int閞prete: " << temazo.getInterprete() << std::endl;
+    std::cout << prefijo << " - Duraci髇: " << temazo.getDuracion() << " segundos" << std::endl;
+    std::cout << prefijo << " - Puntuaci髇: " << temazo.getPuntuacion() << " puntos" << std::endl;
+    std::cout << prefijo << " - 趌timo garito: " << temazo.getNombreUltimoGarito () << std::endl;
+    std::cout << prefijo << " - Fecha de la 鷏tima reproducci髇:" << std::endl;
+    djutils::mostrarFecha (temazo.getFechaUltimoUso (), "      " );
 }
 
-void djutils::mostrarGarito(const Garito& garito) {
-    std::cout << "GARITO: " << std::endl;
-    std::cout << " - Nombre: " << garito.getNombre() << std::endl;
-    std::cout << " - Direcci贸n: " << garito.getDireccion() << std::endl;
+void djutils::mostrarGarito(const Garito& garito,std::string prefijo) {
+    std::cout << prefijo << "GARITO: " << std::endl;
+    std::cout << prefijo << " - Nombre: " << garito.getNombre() << std::endl;
+    std::cout << prefijo << " - Direcci髇: " << garito.getDireccion() << std::endl;
 }
 
-void djutils::mostrarFecha(const Fecha& fecha) {
-    std::cout << "FECHA: " << std::endl;
-    std::cout << " - D铆a: " << fecha.getDia() << std::endl;
-    std::cout << " - Mes: " << fecha.getMes() << std::endl;
-    std::cout << " - A帽o: " << fecha.getAnio() << std::endl;
+void djutils::mostrarFecha(const Fecha& fecha,std::string prefijo) {
+    std::cout << prefijo << "FECHA: " << std::endl;
+    std::cout << prefijo << " - D韆: " << fecha.getDia() << std::endl;
+    std::cout << prefijo << " - Mes: " << fecha.getMes() << std::endl;
+    std::cout << prefijo << " - A駉: " << fecha.getAnio() << std::endl;
 
 }
+
 void djutils::pedirGarito(Garito& garito) {
     std::string tmp;
     std::cout << "INTRODUZCA LOS DATOS DEL GARITO: " << std::endl;
     std::cout << " - Nombre del garito: ";
     getline(std::cin, tmp);
     garito.setNombre(tmp);
-    std::cout << " - Direcci贸n del garito: ";
+    std::cout << " - Direcci髇 del garito: ";
     getline(std::cin, tmp);
     garito.setDireccion(tmp);
+}
+
+void djutils::mostrarTemazosAnteriores ( const Temazo vTemazos[], int tamV,
+                                         const Fecha& referencia )
+{
+   std::cout << "Los temazos anteriores a la fecha indicada son:" << std::endl;
+   for ( int i = 0; i < tamV; i++ )
+   {
+      if ( vTemazos[i].getFechaUltimoUso () < referencia )
+      {
+         djutils::mostrarTemazo ( vTemazos[i] );
+      }
+   }
 }

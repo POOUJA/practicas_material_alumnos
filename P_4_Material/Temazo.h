@@ -1,13 +1,15 @@
 /**
  * @file Temazo.h
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
- * @desc Clase Temazo para las pr√°cticas de POO
+ * @desc Clase Temazo para las pr·cticas de POO
  * @date 12 de octubre de 2015, 17:08
  */
 
-#include <string>
 #ifndef TEMAZO_H
-#define TEMAZO_H
+#define	TEMAZO_H
+
+#include <string>
+#include "Fecha.h"
 
 /**
  @brief Clase que guarda los datos de un temazo
@@ -15,7 +17,9 @@
 class Temazo {
 public:
     Temazo();
-    Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion = 0);
+    Temazo ( std::string titulo, std::string interprete, int duracion,
+             std::string nombreUltimoGarito, Fecha fechaUltimoUso,
+             int puntuacion=0 );
     Temazo(const Temazo& orig);
     virtual ~Temazo();
     int getPuntuacion() const;
@@ -25,26 +29,19 @@ public:
     std::string getInterprete() const;
     void setTitulo(std::string titulo);
     std::string getTitulo() const;
-    
-    // A√±adido en pr√°ctica 3
-    void incrementarPuntuacion(int puntos);
-    bool debeEstarEnLaLista() const;
+    void setNombreUltimoGarito ( std::string nombreUltimoGarito );
+    std::string getNombreUltimoGarito ( ) const;
+    void setFechaUltimoUso ( const Fecha& fechaUltimoUso );
+    Fecha getFechaUltimoUso ( ) const;
 
 private:
-    std::string titulo; ///< T√≠tulo de la canci√≥n
-    std::string interprete; ///< Int√©rprete
-    int duracion; ///< Duraci√≥n en segundos
-    int puntuacion; ///< Puntuaci√≥n en funci√≥n de c√≥mo la acoge el p√∫blico
-
-    // A√±adido en pr√°ctica 3
-    static int numTemazos; ///< N√∫mero de temazos que s ellevan instanciados
-    static int puntuacionTotal; ///< Puntuaci√≥n total de todos los temazos
-
-    static void incrementarPuntuacionTotal(int puntos);
-    static void decrementarPuntuacionTotal(int puntos);
-    static double calcularPuntuacionMedia();
-
+    std::string _titulo; ///< TÌtulo de la canciÛn
+    std::string _interprete; ///< IntÈrprete
+    int _duracion; ///< DuraciÛn en segundos
+    int _puntuacion; ///< PuntuaciÛn en funciÛn de cÛmo la acoge el p˙blico
+    std::string _nombreUltimoGarito;   ///< ⁄ltimo garito en que se escuchÛ
+    Fecha _fechaUltimoUso;   ///< ⁄ltimo dÌa en que se escuchÛ
 };
 
-#endif /* TEMAZO_H */
+#endif	/* TEMAZO_H */
 
