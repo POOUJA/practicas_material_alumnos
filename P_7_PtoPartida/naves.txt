@@ -1,5 +1,0 @@
-Kuat Systems;Delta-7;1
-Kuat Systems;Delta-7B;1
-Incom Corporation;T-65B X-wing;1
-Koensayr Manufacturing;Y-wing;2
-Kuat Systems;A-wing;1
