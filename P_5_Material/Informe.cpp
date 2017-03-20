@@ -18,7 +18,7 @@ Informe::Informe ( ): _idPiloto(0), _fechaEstelar(0), _datosInforme("")
    _idI = _numInformes;
 }
 
-Informe::Informe ( int idPiloto, long fecha, string datos ): _idI(idPiloto),
+Informe::Informe ( int idPiloto, long fecha, string datos ): _idPiloto(idPiloto),
                                                              _fechaEstelar(fecha),
                                                              _datosInforme(datos)
 {
