@@ -4,7 +4,7 @@
  *
  */
 
-#include <cstdlib>
+#include <iostream>
 #include "EquipoMutante.h"
 
 using namespace std;
