@@ -24,7 +24,7 @@ EquipoMutante::EquipoMutante(string nombre, string base)
 EquipoMutante::EquipoMutante(const EquipoMutante& orig)
     : _nombre(orig._nombre),
     _base(orig._base),
-    _numMiembros(0) {
+    _numMiembros(orig._numMiembros) {
     
     for (int i = 0; i < _MAX_MIEMBROS_; i++) {
         _miembros[i] = orig._miembros[i];
