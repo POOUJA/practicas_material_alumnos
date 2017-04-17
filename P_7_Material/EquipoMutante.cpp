@@ -115,6 +115,7 @@ EquipoMutante& EquipoMutante::operator=(const EquipoMutante& orig) {
     if (this != &orig) {
         _nombre = orig._nombre;
         _base = orig._base;
+        _numMiembros = orig._numMiembros;
 
         for (int i = 0; i < _MAX_MIEMBROS_; i++) {
             _miembros[i] = orig._miembros[i];
