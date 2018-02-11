@@ -39,7 +39,7 @@ _day(day)
 
 /**
  * @brief Copy constructor of the class
- * @param orig Original object from which data is obtained
+ * @param orig Original object from which data is copied
  * @post Creates and object of type Date
  */
 
