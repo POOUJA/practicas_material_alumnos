@@ -4,9 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Fecha.h</itemPath>
-      <itemPath>Garito.h</itemPath>
-      <itemPath>Temazo.h</itemPath>
+      <itemPath>Date.h</itemPath>
+      <itemPath>Local.h</itemPath>
+      <itemPath>Song.h</itemPath>
       <itemPath>djutils.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -16,9 +16,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Fecha.cpp</itemPath>
-      <itemPath>Garito.cpp</itemPath>
-      <itemPath>Temazo.cpp</itemPath>
+      <itemPath>Date.cpp</itemPath>
+      <itemPath>Local.cpp</itemPath>
+      <itemPath>Song.cpp</itemPath>
       <itemPath>djutils.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -44,17 +44,17 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="Fecha.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Date.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Fecha.h" ex="false" tool="3" flavor2="0">
+      <item path="Date.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Garito.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Local.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Garito.h" ex="false" tool="3" flavor2="0">
+      <item path="Local.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Temazo.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Song.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Temazo.h" ex="false" tool="3" flavor2="0">
+      <item path="Song.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="djutils.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -83,17 +83,17 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Fecha.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Date.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Fecha.h" ex="false" tool="3" flavor2="0">
+      <item path="Date.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Garito.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Local.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Garito.h" ex="false" tool="3" flavor2="0">
+      <item path="Local.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Temazo.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Song.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Temazo.h" ex="false" tool="3" flavor2="0">
+      <item path="Song.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="djutils.cpp" ex="false" tool="1" flavor2="0">
       </item>

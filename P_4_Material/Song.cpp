@@ -1,137 +1,137 @@
 /**
- * @brief Implementación de los métodos de la clase Temazo
- * @file Temazo.cpp
+ * @brief Implementation of the methods from Song class
+ * @file Song.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
  * @date 12 de octubre de 2015, 17:08
  */
-#include "Temazo.h"
+#include "Song.h"
 
 /**
- * @brief Constructor por defecto de la clase
- * @post Crea un objeto de tipo Temazo
+ * @brief Default constructor of the class
+ * @post Creates an object of type Song
  */
-Temazo::Temazo() : _titulo(""), _interprete(""), _duracion(0),
-                   _nombreUltimoGarito(""), _fechaUltimoUso (),
-                   _puntuacion(0)
+Song::Song() : _title(""), _performer(""), _duration(0),
+                   _nameLastLocal(""), _dateLastUse (),
+                   _score(0)
 { }
 
 /**
- * @brief Constructor parametrizado
- * @param titulo Título del temazo
- * @param interprete Persona o grupo que lo interpreta
- * @param duracion Duración en segundos
- * @param nombreUltimoGarito nombre del último garito en que se escuchó
- * @param fechaUltimoUso fecha en que se escuchó el temazo por última vez
- * @param puntuacion Puntuación otorgada por el público
- * @post Crea un objeto de tipo Temazo
+ * @brief Parameterized cosntructor
+ * @param title Title of the Song
+ * @param performer Person or group that plays the song
+ * @param duration Duration in seconds
+ * @param nameLastLocal Name of the last Local where it was played
+ * @param dateLastUse Date when the Song was lastly played
+ * @param score Score given by the audience
+ * @post Creates an object of Song class
  */
-Temazo::Temazo ( std::string titulo, std::string interprete, int duracion,
-                 std::string nombreUltimoGarito, Fecha fechaUltimoUso,
-                 int puntuacion ): _titulo(titulo), _interprete(interprete),
-                                   _duracion(duracion),
-                                   _nombreUltimoGarito (nombreUltimoGarito),
-                                   _fechaUltimoUso (fechaUltimoUso),
-                                   _puntuacion(puntuacion)
+Song::Song( std::string title, std::string performer, int duration,
+            std::string nameLastLocal, Date dateLastUse,
+            int score ): _title(title), _performer(performer),
+                                   _duration(duration),
+                                   _nameLastLocal (nameLastLocal),
+                                   _dateLastUse (dateLastUse),
+                                   _score(score)
 { }
 
 /**
- * @brief Constructor de copia de la clase
- * @param orig Objeto de tipo Temazo que se pasa para copiar sus datos
- * @post Crea un nuevo objeto por copia
+ * @brief Copy constructor of the class
+ * @param orig Object of type Song which data will be copied
+ * @post Creates a new object by cope
  */
 
-Temazo::Temazo ( const Temazo& orig ): _titulo(orig._titulo),
-                                       _interprete(orig._interprete),
-                                       _duracion(orig._duracion),
-                                       _nombreUltimoGarito(orig._nombreUltimoGarito),
-                                       _fechaUltimoUso(orig._fechaUltimoUso),
-                                       _puntuacion(orig._puntuacion)
+Song::Song ( const Song& orig ): _title(orig._title),
+                                       _performer(orig._performer),
+                                       _duration(orig._duration),
+                                       _nameLastLocal(orig._nameLastLocal),
+                                       _dateLastUse(orig._dateLastUse),
+                                       _score(orig._score)
 { }
 
 /**
- * @brief Destructor de clase
- * @post Destruye el objeto
+ * @brief Destructor of the class
+ * @post Destoys the object
  */
-Temazo::~Temazo()
+Song::~Song()
 { }
 
 
 /**
- * @brief Devuelve la puntuación del temazo
- * @post  Devuelve la puntuación del temazo
+ * @brief Returns the score of the Song
+ * @post  Returns the score of the Song
  */
-int Temazo::getPuntuacion() const {
-    return _puntuacion;
+int Song::getScore( ) const {
+    return _score;
 }
 
 /**
- * @brief Modifica la duración del Temazo
- * @param duracion Nueva duración
- * @post Modifica la duración del Temazo
+ * @brief Modifies the duration of the Song
+ * @param duration New duration
+ * @post Modifies the duration of the Song
  */
-void Temazo::setDuracion(int duracion) {
-    this->_duracion = duracion;
+void Song::setDuration( int duration ) {
+    this->_duration = duration;
 }
 
 /**
- * @brief Devuelve la duración del temazo
- * @post  Devuelve la duración del temazo
+ * @brief Returns the duration of the Song
+ * @post  Returns the duration of the Song
  */
-int Temazo::getDuracion() const {
-    return _duracion;
+int Song::getDuration( ) const {
+    return _duration;
 }
 
 /**
- * @brief Modifica el intérprete del Temazo
- * @param interprete Nuevo intérprete
- * @post Modifica el intérprete del Temazo
+ * @brief Modifies the performer of the Song
+ * @param performer New performes
+ * @post Modifies the performer of the Song
  */
-void Temazo::setInterprete(std::string interprete) {
-    this->_interprete = interprete;
+void Song::setPerformer( std::string performer ) {
+    this->_performer = performer;
 }
 
 /**
- * @brief Devuelve el intérprete del temazo
- * @post  Devuelve el intérprete del temazo
+ * @brief Returns the performer of the Song
+ * @post  Returns the performer of the Song
  */
-std::string Temazo::getInterprete() const {
-    return _interprete;
+std::string Song::getPerformer( ) const {
+    return _performer;
 }
 
 /**
- * @brief Modifica el título del Temazo
- * @param titulo Nuevo título
- * @post Modifica el título del Temazo
+ * @brief Modifies the title of the Song
+ * @param title New title
+ * @post Modifies the title of the Song
  */
-void Temazo::setTitulo(std::string titulo) {
-    this->_titulo = titulo;
+void Song::setTitle( std::string title ) {
+    this->_title = title;
 }
 
 /**
- * @brief Devuelve el título del temazo
- * @post  Devuelve el título del temazo
+ * @brief Returns the title of the Song
+ * @post  Returns the title of the Song
  */
-std::string Temazo::getTitulo() const {
-    return _titulo;
+std::string Song::getTitle( ) const {
+    return _title;
 }
 
-void Temazo::setNombreUltimoGarito ( std::string nombreUltimoGarito )
+void Song::setNameLastLocal( std::string nameLastLocal )
 {
-   this->_nombreUltimoGarito = nombreUltimoGarito;
+   this->_nameLastLocal = nameLastLocal;
 }
 
-std::string Temazo::getNombreUltimoGarito ( ) const
+std::string Song::getNameLastLocal( ) const
 {
-   return _nombreUltimoGarito;
+   return _nameLastLocal;
 }
 
-void Temazo::setFechaUltimoUso ( const Fecha& fechaUltimoUso )
+void Song::setDateLastUse( const Date &dateLastUse )
 {
-   this->_fechaUltimoUso = fechaUltimoUso;
+   this->_dateLastUse = dateLastUse;
 }
 
-Fecha Temazo::getFechaUltimoUso ( ) const
+Date Song::getDateLastUse( ) const
 {
-   return _fechaUltimoUso;
+   return _dateLastUse;
 }
 

@@ -5,20 +5,20 @@
  * @date 12 de octubre de 2015, 18:09
  */
 
-#include "Temazo.h"
-#include "Garito.h"
-#include "Fecha.h"
+#include "Song.h"
+#include "Local.h"
+#include "Date.h"
 
 #ifndef DJUTILS_H
 #define	DJUTILS_H
 
 namespace djutils {
-    void mostrarTemazo( const Temazo& temazo, std::string prefijo="" );
-    void mostrarGarito( const Garito& garito, std::string prefijo="" );
-    void mostrarFecha( const Fecha& fecha, std::string prefijo="" );
-    void pedirGarito( Garito& garito);
-    void mostrarTemazosAnteriores ( const Temazo vTemazos[], int tamV,
-                                    const Fecha& referencia );
+    void showSong( const Song &song, std::string prefix = "" );
+    void showLocal( const Local &local, std::string prefix = "" );
+    void showDate( const Date &date, std::string prefix = "" );
+    void requestLocal( Local &local );
+    void showPreviousSongs( const Song *vSongs, int sizeV,
+                            const Date &reference );
 }
 
 

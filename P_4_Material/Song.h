@@ -1,47 +1,47 @@
 /**
- * @file Temazo.h
+ * @file Song.h
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
- * @desc Clase Temazo para las prácticas de POO
+ * @desc Song class for OOP practices
  * @date 12 de octubre de 2015, 17:08
  */
 
-#ifndef TEMAZO_H
-#define	TEMAZO_H
+#ifndef SONG_H
+#define	SONG_H
 
 #include <string>
-#include "Fecha.h"
+#include "Date.h"
 
 /**
- @brief Clase que guarda los datos de un temazo
+ @brief Class that saves the data of a Song
  */
-class Temazo {
+class Song {
 public:
-    Temazo();
-    Temazo ( std::string titulo, std::string interprete, int duracion,
-             std::string nombreUltimoGarito, Fecha fechaUltimoUso,
-             int puntuacion=0 );
-    Temazo(const Temazo& orig);
-    virtual ~Temazo();
-    int getPuntuacion() const;
-    void setDuracion(int duracion);
-    int getDuracion() const;
-    void setInterprete(std::string interprete);
-    std::string getInterprete() const;
-    void setTitulo(std::string titulo);
-    std::string getTitulo() const;
-    void setNombreUltimoGarito ( std::string nombreUltimoGarito );
-    std::string getNombreUltimoGarito ( ) const;
-    void setFechaUltimoUso ( const Fecha& fechaUltimoUso );
-    Fecha getFechaUltimoUso ( ) const;
+    Song();
+    Song( std::string title, std::string performer, int duration,
+          std::string nameLastLocal, Date dateLastUse,
+          int score = 0 );
+    Song(const Song& orig);
+    virtual ~Song();
+    int getScore( ) const;
+    void setDuration( int duration );
+    int getDuration( ) const;
+    void setPerformer( std::string performer );
+    std::string getPerformer( ) const;
+    void setTitle( std::string title );
+    std::string getTitle( ) const;
+    void setNameLastLocal( std::string nameLastLocal );
+    std::string getNameLastLocal( ) const;
+    void setDateLastUse( const Date &dateLastUse );
+    Date getDateLastUse( ) const;
 
 private:
-    std::string _titulo; ///< Título de la canción
-    std::string _interprete; ///< Intérprete
-    int _duracion; ///< Duración en segundos
-    int _puntuacion; ///< Puntuación en función de cómo la acoge el público
-    std::string _nombreUltimoGarito;   ///< Último garito en que se escuchó
-    Fecha _fechaUltimoUso;   ///< Último día en que se escuchó
+    std::string _title; ///< Title of the song
+    std::string _performer; ///< Performer
+    int _duration; ///< Duration in seconds
+    int _score; ///< Score depending on how the audience like it
+    std::string _nameLastLocal;   ///< Last local where it was played
+    Date _dateLastUse;   ///< Last day when it was played
 };
 
-#endif	/* TEMAZO_H */
+#endif	/* SONG_H */
 

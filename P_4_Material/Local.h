@@ -1,31 +1,31 @@
 /**
- * @file Garito.h
+ * @file Local.h
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
- * @desc Clase Garito para las prácticas de POO
+ * @desc Local class for OOP practices
  * @date 12 de octubre de 2015, 17:08
  */
 
 
 #include <string>
 
-#ifndef GARITO_H
-#define	GARITO_H
+#ifndef LOCAL_H
+#define	LOCAL_H
 /**
- * @brief Clase para almacenar los datos de un local en el que actúa el DJ
+ * @brief Class to save the data of a Local where the DJ performs
  */
-class Garito {
+class Local {
 public:
-    Garito(std::string nombre="", std::string direccion="");
-    Garito(const Garito& orig);
-    virtual ~Garito();
-    void setDireccion(std::string direccion);
-    std::string getDireccion() const;
-    void setNombre(std::string nombre);
-    std::string getNombre() const;
+    Local( std::string name = "", std::string address = "" );
+    Local( const Local &orig );
+    virtual ~Local();
+    void setAddress( std::string address );
+    std::string getAddress( ) const;
+    void setName( std::string name );
+    std::string getName( ) const;
 private:
-    std::string _nombre; ///< Nombre del local
-    std::string _direccion; ///< Dirección del local
+    std::string _name; ///< Name of the Local
+    std::string _address; ///< Address of the Local
 };
 
-#endif	/* GARITO_H */
+#endif	/* LOCAL_H */
 

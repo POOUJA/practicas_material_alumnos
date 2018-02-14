@@ -9,5 +9,16 @@
         <group name="teoria">
             <file>file:/home/algarcia/personal/docencia/repositoriosOOP/repositorioPracticas/practicas_material_alumnos/P_4_Material/main.cpp</file>
         </group>
+        <group>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/main.cpp</file>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/djutils.cpp</file>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/Song.cpp</file>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/Date.cpp</file>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/Local.cpp</file>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/djutils.h</file>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/Date.h</file>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/Local.h</file>
+            <file>file:/home/aabedraba/Github/practicas_material_alumnos/P_4_Material/Song.h</file>
+        </group>
     </open-files>
 </project-private>

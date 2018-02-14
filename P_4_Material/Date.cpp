@@ -1,193 +1,181 @@
 /**
- * @brief Implementación de la clase Fecha
- * @file Fecha.cpp
+ * @brief Implementation of Date class
+ * @file Date.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
  * @date 12 de octubre de 2015, 17:59
  */
 #include <time.h>
-#include "Fecha.h"
+#include "Date.h"
 
 /**
- * @brief Constructor por defecto de la clase
- * @post Construye in nuevo objeto estableciendo el dia, mes y año a los que indique el sistema
+ * @brief Default constructor of the clas
+ * @post Constructs a new object setting the day, month and year to the indicated by the system
  */
-Fecha::Fecha() :
-_dia(0)
-, _mes(0)
-, _anio(0) {
+Date::Date() :
+_day(0)
+, _month(0)
+, _year(0) {
     struct tm *tmp;
-    time_t fecha;
-    time(&fecha);
-    tmp = localtime(&fecha);
-    this->_anio = tmp->tm_year + 1900;
-    this->_mes = tmp->tm_mon + 1;
-    this->_dia = tmp->tm_mday;
+    time_t date;
+    time(&date);
+    tmp = localtime(&date);
+    this->_year = tmp->tm_year + 1900;
+    this->_month = tmp->tm_mon + 1;
+    this->_day = tmp->tm_mday;
 }
 
 /**
- * @brief Constructor parametrizado
- * @param dia Dia para la fecha
- * @param mes Mes para la fecha
- * @param anio Año para la fecha
- * @post Crea un objeto con los valores indicados
+ * @brief Parameterized cosntructor
+ * @param day Day for the Date
+ * @param month Month for the Date
+ * @param year Year for the Date
+ * @post Creates an object with the indicated values
  */
-Fecha::Fecha( int dia, int mes, int anio) :
-_dia(dia)
-, _mes(mes)
-, _anio(anio) {
+Date::Date( int day, int month, int year ) :
+_day(day)
+, _month(month)
+, _year(year) {
 }
 
 /**
- * @brief Constructor de copia de la clase
- * @param orig Objeto del cual se obtienen los datos
- * @post Crea un objeto de tipo fecha
+ * @brief Copy constructor of the class
+ * @param orig Object from which data is copied
+ * @post Creates an object of class Date
  */
 
-Fecha::Fecha(const Fecha& orig):
-_dia(orig._dia)
-, _mes(orig._mes)
-, _anio(orig._anio) {
+Date::Date(const Date& orig):
+_day(orig._day)
+, _month(orig._month)
+, _year(orig._year) {
 }
 
 /**
- * @brief Destructor de clase
- * @post Destruye el objeto
+ * @brief Destructor of the object
+ * @post Destroys the object
  */
-Fecha::~Fecha() {
+Date::~Date() {
 }
 
 /**
- * @brief Modifica el año de la fecha
- * @param anio Nuevo año para la fecha
- * @post Modifica el año para la fecha
+ * @brief Modifies the year of the Date
+ * @param year New year for the Date
+ * @post Modifies the year of the Date
  */
-void Fecha::setAnio(int anio) {
-    this->_anio = anio;
+void Date::setYear( int year ) {
+    this->_year = year;
 }
 
 /**
- * @brief Devuelve el año de la fecha
- * @post Devuelve el año de la fecha
+ * @brief Returns the year of the Date
+ * @post Returns the year of the Date
  */
-int Fecha::getAnio() const {
-    return _anio;
+int Date::getYear( ) const {
+    return _year;
 }
 
 /**
- * @brief Modifica el mes de la fecha
- * @param mes Nuevo mes para la fecha
- * @post Modifica el mes para la fecha
+ * @brief Modifies the month of the Date
+ * @param month New month for the Date
+ * @post Modifies the month of the Date
  */
-void Fecha::setMes(int mes) {
-    this->_mes = mes;
+void Date::setMonth( int month ) {
+    this->_month = month;
 }
 
 /**
- * @brief Devuelve el mes de la fecha
- * @post Devuelve el mes de la fecha
+ * @brief Returns the month of the Year
+ * @post Returns the month of the Year
  */
-int Fecha::getMes() const {
-    return _mes;
+int Date::getMonth( ) const {
+    return _month;
 }
 
 /**
- * @brief Modifica el dia de la fecha
- * @param dia Nuevo dia para la fecha
- * @post Modifica el dia para la fecha
+ * @brief Modifies the day of the Date
+ * @param day New day for the Date
+ * @post Modifies the day of the Date
  */
-void Fecha::setDia(int dia) {
-    this->_dia = dia;
+void Date::setDay( int day ) {
+    this->_day = day;
 }
 /**
- * @brief Devuelve el dia de la fecha
- * @post Devuelve el dia de la fecha
+ * @brief Returns the day of the Date
+ * @post Returns the day of the Date
  */
-int Fecha::getDia() const {
-    return _dia;
+int Date::getDay( ) const {
+    return _day;
 }
 
 
 /**
- * @brief Operador de "menor que"
- * @param otra Fecha con la que se compara
- * @retval true si la fecha almacenada en este objeto es anterior a la
- *         almacenada en el que se le pasa como parámetro
- * @retval false si la fecha almacenada en este objeto es posterior a la
- *         almacenada en el que se le pasa como parámetro, o si ambas coinciden
+ * @brief Operator "less than"
+ * @param other Date being compared
+ * @retval true si if the date stored in this object is earlier than the date passed as a parameter
+ * @retval false if the date stored in this object is later that the dated passed as a parameter, or if both match
  */
-bool Fecha::operator < ( const Fecha& otra )
+bool Date::operator <( const Date &other )
 {
-   long numEsta = _anio*10000 + _mes*100 + _dia;
-   long numOtra = otra._anio*10000 + _mes*100 + _dia;
+   long numThis = _year*10000 + _month*100 + _day;
+   long numOther = other._year*10000 + _month*100 + _day;
 
-   return ( numEsta < numOtra );
+   return ( numThis < numOther );
 }
 
 
 /**
- * @brief Operador de "igual que"
- * @param otra Fecha con la que se compara
- * @retval true si la fecha almacenada en este objeto es igual a la
- *         almacenada en el que se le pasa como parámetro
- * @retval false si la fecha almacenada en este objeto NO es igual a la
- *         almacenada en el que se le pasa como parámetro
+ * @brief Operator "equal to"
+ * @param other Date being compared
+ * @retval true if the date stored in this object is equal to the date passed as a parameter
+ * @retval false if the date stored in this object is NOT equal to the date passed as a parameter
  */
-bool Fecha::operator == ( const Fecha& otra )
+bool Date::operator ==( const Date &other )
 {
-   long numEsta = _anio*10000 + _mes*100 + _dia;
-   long numOtra = otra._anio*10000 + _mes*100 + _dia;
+   long numThis = _year*10000 + _month*100 + _day;
+   long numOther = other._year*10000 + _month*100 + _day;
 
-   return ( numEsta == numOtra );
+   return ( numThis == numOther );
 }
 
 /**
- * @brief Operador de "menor o igual que"
- * @param otra Fecha con la que se compara
- * @retval true si la fecha almacenada en este objeto es anterior o igual a la
- *         almacenada en el que se le pasa como parámetro
- * @retval false si la fecha almacenada en este objeto es posterior a la
- *         almacenada en el que se le pasa como parámetro
+ * @brief Operator "less than or equal to"
+ * @param other Date being compared
+ * @retval true if the date stored in this object is earlier than or iqual to the date that is passed as a parameter
+ * @retval false if the date stored in this object is later than or equal to the date that is passed as a parameter
  */
-bool Fecha::operator<= ( const Fecha &otra )
+bool Date::operator<=( const Date &other )
 {
-   return ( ( this->operator < (otra) ) || ( this->operator == (otra) ) );
+   return ( ( this->operator < (other) ) || ( this->operator == (other) ) );
 }
 
 /**
- * @brief Operador de "mayor o igual que"
- * @param otra Fecha con la que se compara
- * @retval true si la fecha almacenada en este objeto es igual o posterior a la
- *         almacenada en el que se le pasa como parámetro
- * @retval false si la fecha almacenada en este objeto es anterior a la
- *         almacenada en el que se le pasa como parámetro
+ * @brief Operator "greater than or equal to"
+ * @param other Date being compared
+ * @retval true if the date stored in this object is equal to or later than the date passed as a parameter
+ * @retval false si if the date stored in this object is earlier than the date passed as a parameter
  */
-bool Fecha::operator>= ( const Fecha &otra )
+bool Date::operator>=( const Date &other )
 {
-   return ( !( this->operator < (otra) ) );
+   return ( !( this->operator < (other) ) );
 }
 
 /**
- * @brief Operador de "mayor que"
- * @param otra Fecha con la que se compara
- * @retval true si la fecha almacenada en este objeto es posterior a la
- *         almacenada en el que se le pasa como parámetro
- * @retval false si la fecha almacenada en este objeto es anterior o igual a la
- *         almacenada en el que se le pasa como parámetro
+ * @brief Operator "greater than"
+ * @param other Date being compared
+ * @retval true if the date stored in this object is later than or equal to the date that is passed as a parameter
+ * @retval false if the date stored in this object is earlier than or iqual to the date that is passed as a parameter
  */
-bool Fecha::operator> ( const Fecha &otra )
+bool Date::operator>( const Date &other )
 {
-   return ( !( this->operator < (otra) ) && !( this->operator == (otra) ) );
+   return ( !( this->operator < (other) ) && !( this->operator == (other) ) );
 }
 
 /**
  * @brief Operador de "distinto a"
- * @param otra Fecha con la que se compara
- * @retval true si la fecha almacenada en este objeto es distinta a la
- *         almacenada en el que se le pasa como parámetro
- * @retval false si la fecha almacenada en este objeto es igual a la
- *         almacenada en el que se le pasa como parámetro
+ * @param other Date being compared
+ * @retval true if the date stored in this object is different to the passed passed as a parameter
+ * @retval false if the date stored in this object is equal to the date passed as a parameter
  */
-bool Fecha::operator!= ( const Fecha &otra )
+bool Date::operator!=( const Date &other )
 {
-   return ( !( this->operator == (otra) ) );
+   return ( !( this->operator == (other) ) );
 }

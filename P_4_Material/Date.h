@@ -1,39 +1,39 @@
 /**
- * @file Fecha.h
+ * @file Date.h
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
- * @desc Clase Fecha para las prácticas de POO
+ * @desc Date class for OOP practices
  * @date 12 de octubre de 2015, 17:08
  */
 
 
-#ifndef FECHA_H
-#define	FECHA_H
+#ifndef DATE_H
+#define	DATE_H
 /**
- * @brief Clase fecha
+ * @brief Date class
  */
-class Fecha {
+class Date {
 public:
-    Fecha();
-    Fecha( int dia, int mes, int anio);
-    Fecha(const Fecha& orig);
-    virtual ~Fecha();
-    void setAnio(int anio);
-    int getAnio() const;
-    void setMes(int mes);
-    int getMes() const;
-    void setDia(int dia);
-    int getDia() const;
-    bool operator< ( const Fecha &otra );
-    bool operator== ( const Fecha &otra );
-    bool operator<= ( const Fecha &otra );
-    bool operator>= ( const Fecha &otra );
-    bool operator> ( const Fecha &otra );
-    bool operator!= ( const Fecha &otra );
+    Date();
+    Date( int day, int month, int year );
+    Date(const Date& orig);
+    virtual ~Date();
+    void setYear( int year );
+    int getYear( ) const;
+    void setMonth( int month );
+    int getMonth( ) const;
+    void setDay( int day );
+    int getDay( ) const;
+    bool operator<( const Date &other );
+    bool operator==( const Date &other );
+    bool operator<=( const Date &other );
+    bool operator>=( const Date &other );
+    bool operator>( const Date &other );
+    bool operator!=( const Date &other );
 private:
-    int _dia; ///< Dia dentro de un mes
-    int _mes; ///< Mes dentro de un año
-    int _anio; ///< Año de la fecha almacenada
+    int _day; ///< Day in a month
+    int _month; ///< Month in a year
+    int _year; ///< Year of the stored date
 };
 
-#endif	/* FECHA_H */
+#endif	/* DATE_H */
 

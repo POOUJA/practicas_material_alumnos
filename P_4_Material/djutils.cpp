@@ -8,51 +8,51 @@
 #include <iostream>
 #include "djutils.h"
 
-void djutils::mostrarTemazo(const Temazo& temazo,std::string prefijo) {
-    std::cout << prefijo << "TEMAZO: " << std::endl;
-    std::cout << prefijo << " - Título: " << temazo.getTitulo() << std::endl;
-    std::cout << prefijo << " - Intérprete: " << temazo.getInterprete() << std::endl;
-    std::cout << prefijo << " - Duración: " << temazo.getDuracion() << " segundos" << std::endl;
-    std::cout << prefijo << " - Puntuación: " << temazo.getPuntuacion() << " puntos" << std::endl;
-    std::cout << prefijo << " - Último garito: " << temazo.getNombreUltimoGarito () << std::endl;
-    std::cout << prefijo << " - Fecha de la última reproducción:" << std::endl;
-    djutils::mostrarFecha (temazo.getFechaUltimoUso (), "      " );
+void djutils::showSong( const Song &song, std::string prefix ) {
+    std::cout << prefix << "SONG: " << std::endl;
+    std::cout << prefix << " - Title: " << song.getTitle( ) << std::endl;
+    std::cout << prefix << " - Performer: " << song.getPerformer( ) << std::endl;
+    std::cout << prefix << " - Duration: " << song.getDuration( ) << " seconds" << std::endl;
+    std::cout << prefix << " - Score: " << song.getScore( ) << " points" << std::endl;
+    std::cout << prefix << " - Last local: " << song.getNameLastLocal( ) << std::endl;
+    std::cout << prefix << " - Last played date:" << std::endl;
+    djutils::showDate( song.getDateLastUse( ), "      " );
 }
 
-void djutils::mostrarGarito(const Garito& garito,std::string prefijo) {
-    std::cout << prefijo << "GARITO: " << std::endl;
-    std::cout << prefijo << " - Nombre: " << garito.getNombre() << std::endl;
-    std::cout << prefijo << " - Dirección: " << garito.getDireccion() << std::endl;
+void djutils::showLocal( const Local &local, std::string prefix ) {
+    std::cout << prefix << "LOCAL: " << std::endl;
+    std::cout << prefix << " - Name: " << local.getName( ) << std::endl;
+    std::cout << prefix << " - Address: " << local.getAddress( ) << std::endl;
 }
 
-void djutils::mostrarFecha(const Fecha& fecha,std::string prefijo) {
-    std::cout << prefijo << "FECHA: " << std::endl;
-    std::cout << prefijo << " - Día: " << fecha.getDia() << std::endl;
-    std::cout << prefijo << " - Mes: " << fecha.getMes() << std::endl;
-    std::cout << prefijo << " - Año: " << fecha.getAnio() << std::endl;
+void djutils::showDate( const Date &date, std::string prefix ) {
+    std::cout << prefix << "DATE: " << std::endl;
+    std::cout << prefix << " - Day: " << date.getDay( ) << std::endl;
+    std::cout << prefix << " - Month: " << date.getMonth( ) << std::endl;
+    std::cout << prefix << " - Year: " << date.getYear( ) << std::endl;
 
 }
 
-void djutils::pedirGarito(Garito& garito) {
+void djutils::requestLocal( Local &local ) {
     std::string tmp;
-    std::cout << "INTRODUZCA LOS DATOS DEL GARITO: " << std::endl;
-    std::cout << " - Nombre del garito: ";
+    std::cout << "INSERT DATA OF THE LOCAL: " << std::endl;
+    std::cout << " - Name of the local: ";
     getline(std::cin, tmp);
-    garito.setNombre(tmp);
-    std::cout << " - Dirección del garito: ";
+    local.setName( tmp );
+    std::cout << " - Address of the local: ";
     getline(std::cin, tmp);
-    garito.setDireccion(tmp);
+    local.setAddress( tmp );
 }
 
-void djutils::mostrarTemazosAnteriores ( const Temazo vTemazos[], int tamV,
-                                         const Fecha& referencia )
+void djutils::showPreviousSongs( const Song *vSongs, int sizeV,
+                                 const Date &reference )
 {
-   std::cout << "Los temazos anteriores a la fecha indicada son:" << std::endl;
-   for ( int i = 0; i < tamV; i++ )
+   std::cout << "The songs previous to the indicated date are:" << std::endl;
+   for ( int i = 0; i < sizeV; i++ )
    {
-      if ( vTemazos[i].getFechaUltimoUso () < referencia )
+      if ( vSongs[ i ].getDateLastUse( ) < reference )
       {
-         djutils::mostrarTemazo ( vTemazos[i] );
+          djutils::showSong( vSongs[ i ] );
       }
    }
 }

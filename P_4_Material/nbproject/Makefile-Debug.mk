@@ -35,9 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Fecha.o \
-	${OBJECTDIR}/Garito.o \
-	${OBJECTDIR}/Temazo.o \
+	${OBJECTDIR}/Date.o \
+	${OBJECTDIR}/Local.o \
+	${OBJECTDIR}/Song.o \
 	${OBJECTDIR}/djutils.o \
 	${OBJECTDIR}/main.o
 
@@ -66,20 +66,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/p_4_material: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/p_4_material ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Fecha.o: Fecha.cpp
+${OBJECTDIR}/Date.o: Date.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Fecha.o Fecha.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Date.o Date.cpp
 
-${OBJECTDIR}/Garito.o: Garito.cpp
+${OBJECTDIR}/Local.o: Local.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Garito.o Garito.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Local.o Local.cpp
 
-${OBJECTDIR}/Temazo.o: Temazo.cpp
+${OBJECTDIR}/Song.o: Song.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Temazo.o Temazo.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Song.o Song.cpp
 
 ${OBJECTDIR}/djutils.o: djutils.cpp
 	${MKDIR} -p ${OBJECTDIR}

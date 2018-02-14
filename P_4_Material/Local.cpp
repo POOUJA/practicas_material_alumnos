@@ -1,78 +1,78 @@
 /**
- * @brief Implementación de la clase Garito
- * @file Garito.cpp
+ * @brief Implementation of the Local class
+ * @file Local.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
  * @date 12 de octubre de 2015, 17:51
  */
 
-#include "Garito.h"
+#include "Local.h"
 
 /**
- * @brief Constructor por defecto de la clase
- * @param nombre Nombre del garito
- * @param direccion Direccion del garito
- * @post Crea un nuevo objeto de la clase Garito
+ * @brief Default constructor of the class
+ * @param name Name of the Local
+ * @param address Address of the Local
+ * @post Creates a new object of class Local
  */
-Garito::Garito(std::string nombre, std::string direccion) :
-_nombre(nombre)
-, _direccion(direccion) {
+Local::Local( std::string name, std::string address ) :
+_name(name)
+, _address(address) {
 }
 
 /**
- * @brief Constructor de copia de la clase
- * @param orig Objeto de tipo garito del que se copiarán los datos
- * @post Crea un nuevo objeto de la clase Garito
+ * @brief Copy constructor of the class
+ * @param orig Object of type Local from which data are being copied
+ * @post Creates a new object of class Local
  */
 
-Garito::Garito(const Garito& orig) :
-_nombre(orig._nombre)
-, _direccion(orig._direccion) {
+Local::Local( const Local &orig ) :
+_name(orig._name)
+, _address(orig._address) {
 }
 
 /**
- * @brief Destructor de clase
- * @post Destruye el objeto
+ * @brief Destructor of the class
+ * @post Destroys the object
  */
-Garito::~Garito() {
+Local::~Local() {
 }
 
 /**
- * @brief Modifica la dirección del Garito
- * @param direccion Nueva dirección
- * @post Modifica la dirección del Garito
+ * @brief Modifies the new address of the Local
+ * @param address New address
+ * @post Modifies the address of the Local
  */
-void Garito::setDireccion(std::string direccion) {
-   if ( direccion == "" )
-      throw std::string ( "Se intenta asignar una dirección vacía" );
+void Local::setAddress( std::string address ) {
+   if ( address == "" )
+      throw std::string ( "Trying to assing an empty address" );
 
-   this->_direccion = direccion;
+   this->_address = address;
 }
 
 /**
- * @brief Devuelve la dirección del garito
- * @post Devuelve la dirección del garito
+ * @brief Returns the address of the Local
+ * @post Returns the address of the Local
  */
-std::string Garito::getDireccion() const {
-    return _direccion;
+std::string Local::getAddress( ) const {
+    return _address;
 }
 
 /**
- * @brief Modifica el nombre del garito
- * @param nombre Nuevo nombre para el garito
- * @post Modifica el nombre del garito
+ * @brief Modies the name of the Local
+ * @param name New name for the Local
+ * @post Modies the name of the Local
  */
-void Garito::setNombre(std::string nombre) {
-   if ( nombre == "" )
-      throw std::string ( "Se intenta asignar una dirección vacía" );
+void Local::setName( std::string name ) {
+   if ( name == "" )
+      throw std::string ( "Trying to assign an empty name" );
 
-   this->_nombre = nombre;
+   this->_name = name;
 }
 
 /**
- * @brief Devuelve el nombre del garito
- * @post Devuelve el nombre del garito
+ * @brief Returns the name of the Local
+ * @post Returns the name of the Local
  */
-std::string Garito::getNombre() const {
-    return _nombre;
+std::string Local::getName( ) const {
+    return _name;
 }
 
