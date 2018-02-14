@@ -8,7 +8,7 @@
 #include "Date.h"
 
 /**
- * @brief Default constructor of the clas
+ * @brief Default constructor of the class
  * @post Constructs a new object setting the day, month and year to the indicated by the system
  */
 Date::Date() :
