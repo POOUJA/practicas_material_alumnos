@@ -2,7 +2,7 @@
  * @file StarFighter.h
  * @author Casipro Gramo
  *
- * @date Fecha estelar 20160309
+ * @date Stellar date 20160309
  */
 
 #ifndef STARFIGHTER_H
@@ -18,26 +18,26 @@ using std::string;
 class StarFighter
 {
    private:
-      static int _numStarFighters; ///< Número de objetos de esta clase instanciados
-      int _idSF; ///< Identificador único de la nave
-      string _marca; ///< Marca de la nave (parece que las VW contaminan más)
-      string _modelo; ///< Modelo de la nava
-      int _numPlazas; ///< Número de plazas de la nave
+      static int _numStarFighters; ///< Number of objects instantiated by this class
+      int _SFid; ///< Unique identifier of the Starship
+      string _brand; ///< Starship's brand (seems that VW's polute more)
+      string _model; ///< Starship's model
+      int _numSeats; ///< Number of seat in the Starship
 
    public:
       StarFighter ();
-      StarFighter ( string marca, string modelo, int numPlazas=1 );
+      StarFighter( string brand, string model, int numSeats = 1 );
       StarFighter ( const StarFighter& orig );
       virtual ~StarFighter ( );
-      void setNumPlazas ( int numPlazas );
-      int getNumPlazas ( ) const;
-      void setModelo ( string modelo );
-      string getModelo ( ) const;
-      void setMarca ( string marca );
-      string getMarca ( ) const;
-      int getIdSF ( ) const;
+      void setNumSeats( int numSeats );
+      int getNumSeats( ) const;
+      void setModel( string model );
+      string getModel( ) const;
+      void setBrand( string brand );
+      string getBrand( ) const;
+      int getSFid( ) const;
       string toCSV () const;
-      StarFighter& operator= ( const StarFighter& otro );
+      StarFighter& operator=( const StarFighter &other );
 };
 
 #endif /* STARFIGHTER_H */
