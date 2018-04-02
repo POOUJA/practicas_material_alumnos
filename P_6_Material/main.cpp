@@ -11,15 +11,15 @@
 using namespace std;
 
 /**
- * @todo Ver el enunciado del ejercicio 5 de la práctica
+ * @todo See exercise number 5 from the practice guide
  */
 int main ( int argc, char** argv )
 {
     string datosPilotos[5] = {"Dameron Poe;Jakku;100;123456;---",
-                              "Anakin Skywalker;Tatooine;133;126756;Derribados 3 cazas enemigos",
-                              "Han Solo;Corellia;247;126786;Impacto en motor izquierdo",
+                              "Anakin Skywalker;Tatooine;133;126756;Knocked down 3 enemy fighters",
+                              "Han Solo;Corellia;247;126786;Impact in left engine",
                               "Chewbacca;Kashyyk;115;136786;---",
-                              "Leia Organa;Alderaan;3;126336;Derribados 10 cazas enemigos"};
+                              "Leia Organa;Alderaan;3;126336;Knocked down 10 enemy fighters"};
 
     
     return 0;
