@@ -12,31 +12,31 @@
 
 int StarFighter::_numStarFighters = 0;
 
-StarFighter::StarFighter ( ): _marca (""), _modelo (""), _numPlazas (1)
+StarFighter::StarFighter ( ): _brand (""), _model (""), _numSeats (1)
 {
    _numStarFighters++;
-   _idSF = _numStarFighters;
+   _SFid = _numStarFighters;
 }
 
-StarFighter::StarFighter ( string marca, string modelo, int numPlazas ):
-                           _marca (marca), _modelo(modelo), _numPlazas(numPlazas)
+StarFighter::StarFighter( string brand, string model, int numSeats ):
+                           _brand (brand), _model(model), _numSeats(numSeats)
 {
-   if ( numPlazas <= 0 )
+   if ( numSeats <= 0 )
    {
-      throw std::invalid_argument ( "StarFighter::StarFighter: el número de"
-                                    " plazas no puede ser negativo" );
+      throw std::invalid_argument ( "StarFighter::StarFighter: the number of"
+                                            "seats can't be negative" );
    }
 
    _numStarFighters++;
-   _idSF = _numStarFighters;
+   _SFid = _numStarFighters;
 }
 
-StarFighter::StarFighter ( const StarFighter& orig ): _marca(orig._marca),
-                                                      _modelo(orig._modelo),
-                                                      _numPlazas(orig._numPlazas)
+StarFighter::StarFighter ( const StarFighter& orig ): _brand(orig._brand),
+                                                      _model(orig._model),
+                                                      _numSeats(orig._numSeats)
 {
    _numStarFighters++;
-   _idSF = _numStarFighters;
+   _SFid = _numStarFighters;
 }
 
 StarFighter::~StarFighter ( )
@@ -44,62 +44,62 @@ StarFighter::~StarFighter ( )
 }
 
 /**
- * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción
- *       correspondiente. El número de plazas no puede ser <= 0
+ * @todo Here you have to add the parameter checking and throw the corresponding
+ *       exception. The number of seats can't be <= 0
  */
-void StarFighter::setNumPlazas ( int numPlazas )
+void StarFighter::setNumSeats( int numSeats )
 {
-   this->_numPlazas = numPlazas;
+   this->_numSeats = numSeats;
 }
 
-int StarFighter::getNumPlazas ( ) const
+int StarFighter::getNumSeats( ) const
 {
-   return _numPlazas;
+   return _numSeats;
 }
 
-void StarFighter::setModelo ( string modelo )
+void StarFighter::setModel( string model )
 {
-   this->_modelo = modelo;
+   this->_model = model;
 }
 
-string StarFighter::getModelo ( ) const
+string StarFighter::getModel( ) const
 {
-   return _modelo;
+   return _model;
 }
 
-void StarFighter::setMarca ( string marca )
+void StarFighter::setBrand( string brand )
 {
-   this->_marca = marca;
+   this->_brand = brand;
 }
 
-string StarFighter::getMarca ( ) const
+string StarFighter::getBrand( ) const
 {
-   return _marca;
+   return _brand;
 }
 
-int StarFighter::getIdSF ( ) const
+int StarFighter::getSFid( ) const
 {
-   return _idSF;
+   return _SFid;
 }
 
 string StarFighter::toCSV () const
 {
    std::stringstream aux;
 
-   aux << _marca << " ; "
-       << _modelo << " ; "
-       << _numPlazas;
+   aux << _brand << " ; "
+       << _model << " ; "
+       << _numSeats;
 
    return ( aux.str () );
 }
 
-StarFighter& StarFighter::operator = (const StarFighter& otro)
+StarFighter& StarFighter::operator =( const StarFighter &other )
 {
-   if ( this != &otro )
+   if ( this != &other )
    {
-      _marca = otro._marca;
-      _modelo = otro._modelo;
-      _numPlazas = otro._numPlazas;
+      _brand = other._brand;
+      _model = other._model;
+      _numSeats = other._numSeats;
    }
    
    return ( *this );
