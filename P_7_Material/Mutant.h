@@ -24,9 +24,9 @@ public:
             string nationality = "---" );
     Mutant(const Mutant& orig);
     virtual ~Mutant();
-    void setRealName( string nombreReal );
+    void setRealName( string realName );
     string getRealName( ) const;
-    void setNationality( string nacionalidad );
+    void setNationality( string nationality );
     string getNationality( ) const;
     void setBirthDate( int birthDate );
     int getBirthDate( ) const;

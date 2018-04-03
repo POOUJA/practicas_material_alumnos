@@ -9,52 +9,44 @@
 
 using namespace std;
 
-/***@brief Visualiza la información completa de un mutante*/
-void visualiza( Mutante& m) {
-    std::cout << "MUTANTE: " 
+/***@brief Visualizes the complete information of a Mutant*/
+void visualiza( Mutant& m) {
+    std::cout << "MUTANT: "
               << m.toCSV() << std::endl;
-    std::cout << "  Poderes : " << std::endl;
-    //ToDo, Mostrar los poderes del mutante
+    std::cout << "  Powers : " << std::endl;
+    //ToDo, Show the powers of the Mutant
 
 }
-/***@brief Visualiza los datos de todos los miembros de un equipo mutante*/
-void visualiza( EquipoMutante& eq) {
-    std::cout << "EQUIPO: " << eq.getNombre() 
+/***@brief Visualizes the data of all the members of a Mutant Team*/
+void visualiza( MutantTeam& eq) {
+    std::cout << "TEAM: " << eq.getName()
               << " (Base: " << eq.getBase()<< ")" <<std::endl
               << "============================"
               << std::endl;
-    //ToDo, Mostrar los mutantes del equipo (usar función anterior)
+    //ToDo, Show the mutants of the team (use the previous function)
 
 }
 
-//ToDo, Método para almacenar un vector de punteros a mutantes
-//almacenaMutantesCSV()
+//ToDo, Method to save a vector of pointers to Mutants
+//saveMutantsCSV()
 
 
 int main(int argc, char** argv) {
 
-    
-   // Crea un array de 5 punteros a mutantes, asignándoles los valores a sus
-   // atributos directamente en el código fuente
+    // You have to create an a array of 5 pointers to mutants, assigning them
+    // the values of their attributes directly from the source code
 
-    
-   // Crea dos equipos mutantes, asignando al primero los mutantes que ocupan
-   // las posiciones pares del array, y al segundo los de las posiciones impares
-    
-    
-   // Añade varios poderes a cada mutante, utilizando los métodos ya
-   // implementados: usando datos o objetos de tipo Poder
-   // Muestra por la consola la información de cada equipo mutante en formato CSV
+    // Create two mutant teams, assigning to the fist team the mutants that are
+    // in the even positions of the array, and to the second team the odd positions
 
-    
-   //Guardamos datos de mutantes en fichero CSV
-    
-    
-   // Destruye todos los objetos creados en memoria dinámica antes de la
-   // finalización del programa
+    // Add various powers to each mutant, using the methods already implemented:
+    // using data or objects of type Power
+    // Show on console the information of each Mutant Team in CSV format
 
-    
-    
+    // Save the mutants data in a CSV file
+
+    //Destroy all the created objects in dynamic memory before the program ending
+
     return 0;
 }
 

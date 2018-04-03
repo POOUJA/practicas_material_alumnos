@@ -30,16 +30,16 @@ Mutant::Mutant(const Mutant& orig)
 Mutant::~Mutant() {
 }
 
-void Mutant::setRealName( string nombreReal ) {
-    this->_realName = nombreReal;
+void Mutant::setRealName( string realName ) {
+    this->_realName = realName;
 }
 
 string Mutant::getRealName( ) const {
     return _realName;
 }
 
-void Mutant::setNationality( string nacionalidad ) {
-    this->_nationality = nacionalidad;
+void Mutant::setNationality( string nationality ) {
+    this->_nationality = nationality;
 }
 
 string Mutant::getNationality( ) const {
