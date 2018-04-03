@@ -5,7 +5,7 @@
  */
 
 #include <iostream>
-#include "EquipoMutante.h"
+#include "MutantTeam.h"
 
 using namespace std;
 
