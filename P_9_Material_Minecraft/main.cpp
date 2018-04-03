@@ -8,7 +8,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "Cofre.h"
+#include "Chest.h"
 #include "Item.h"
 using namespace std;
 
@@ -40,12 +40,12 @@ void liberaItems(Item* v[], int numItems) {
 
 }
 
-void visualiza(Cofre &c) {
+void visualiza(Chest &c) {
     std::cout << "CONTENIDO DEL COFRE" << std::endl
               << "===================" << std::endl;
-    for (int i = 1; i <= c.cuantosHay(); i++) {
+    for (int i = 1; i <= c.howManyThereAre( ); i++) {
         std::cout << i <<".- "
-                  << c.consulta(i).getDescripcion() << std::endl;
+                  << c.see( i ).getDescription( ) << std::endl;
     }
 
 }
@@ -62,12 +62,12 @@ int main(int argc, char** argv) {
     //Inicializamos algunos objetos de prueba
     int numObjetos=inicializaItems(objetos,MAXITEMS);
 
-    Cofre c; //Creamos un cofre con 27 posiciones
+    Chest c; //Creamos un cofre con 27 posiciones
     
     //Metemos todos los objetos en el cofre
     
     for (int i = 0; i < numObjetos; i++) {
-         c.mete(objetos[i]);
+        c.put( objetos[ i ] );
     }
 
     visualiza(c);    

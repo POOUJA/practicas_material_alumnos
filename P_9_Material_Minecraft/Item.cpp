@@ -2,13 +2,13 @@
  * @file    Item.cpp
  * @author  jrbalsas
  * 
- * @date    15 de abril de 2016
+ * @date    April 15th, 2016
  */
 
 #include "Item.h"
 
-Item::Item(std::string descripcion)
-    :_descripcion(descripcion){
+Item::Item( std::string description )
+    :_decription(description){
 }
 
 Item::Item(const Item& orig) {
@@ -17,11 +17,11 @@ Item::Item(const Item& orig) {
 Item::~Item() {
 }
 
-void Item::setDescripcion(std::string descripcion) {
-    this->_descripcion = descripcion;
+void Item::setDescription( std::string description ) {
+    this->_decription = description;
 }
 
-std::string Item::getDescripcion() const {
-    return _descripcion;
+std::string Item::getDescription( ) const {
+    return _decription;
 }
 
