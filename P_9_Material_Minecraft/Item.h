@@ -2,7 +2,7 @@
  * @file    Item.h
  * @author  jrbalsas
  * 
- * @date    15 de abril de 2016
+ * @date    April 6th, 2016
  */
 
 #include <string>
@@ -12,13 +12,13 @@
 
 class Item {
 public:
-    Item(std::string descripcion="Desconocido");
+    Item( std::string description = "Unknown" );
     Item(const Item& orig);
     virtual ~Item();
-    void setDescripcion(std::string descripcion);
-    std::string getDescripcion() const;
+    void setDescription( std::string description );
+    std::string getDescription( ) const;
 private:
-    std::string _descripcion;
+    std::string _decription;
 };
 
 #endif /* ITEM_H */

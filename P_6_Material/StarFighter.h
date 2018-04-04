@@ -2,7 +2,7 @@
  * @file StarFighter.h
  * @author Casipro Gramo
  *
- * @date Fecha estelar 20160309
+ * @date Stellar date 20160309
  */
 
 #ifndef STARFIGHTER_H
@@ -19,26 +19,26 @@ class StarFighter
 {
    private:
       static int _numStarFighters;
-      int _idSF;
-      string _marca;
-      string _modelo;
-      int _numPlazas;
+      int _starFighterID;
+      string _brand;
+      string _model;
+      int _seatsNumber;
 
    public:
       StarFighter ();
-      StarFighter ( string marca, string modelo, int numPlazas=1 );
+      StarFighter( string brand, string model, int seatsNumber = 1 );
       StarFighter ( const StarFighter& orig );
       virtual ~StarFighter ( );
-      void setNumPlazas ( int numPlazas );
-      int getNumPlazas ( ) const;
-      void setModelo ( string modelo );
-      string getModelo ( ) const;
-      void setMarca ( string marca );
-      string getMarca ( ) const;
-      int getIdSF ( ) const;
+      void setSeatsNumber( int seatsNumber );
+      int getSeatsNumber( ) const;
+      void setModel( string model );
+      string getModel( ) const;
+      void setBrand( string brand );
+      string getBrand( ) const;
+      int getStarFighterID( ) const;
       string toCSV ();
-      StarFighter& operator= ( const StarFighter& otro );
-      void fromCSV ( string& datos );
+      StarFighter& operator=( const StarFighter &other );
+      void fromCSV( string &data );
 };
 
 #endif /* STARFIGHTER_H */

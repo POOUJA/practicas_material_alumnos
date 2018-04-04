@@ -2,7 +2,7 @@
  * @file StarFighter.cpp
  * @author Casipro Gramo
  * 
- * @date Fecha estelar 20160309
+ * @date Stellar date 20160309
  */
 
 #include <stdexcept>
@@ -12,31 +12,31 @@
 
 int StarFighter::_numStarFighters = 0;
 
-StarFighter::StarFighter ( ): _marca (""), _modelo (""), _numPlazas (1)
+StarFighter::StarFighter ( ): _brand (""), _model (""), _seatsNumber (1)
 {
    _numStarFighters++;
-   _idSF = _numStarFighters;
+   _starFighterID = _numStarFighters;
 }
 
-StarFighter::StarFighter ( string marca, string modelo, int numPlazas ):
-                           _marca (marca), _modelo(modelo), _numPlazas(numPlazas)
+StarFighter::StarFighter( string brand, string model, int seatsNumber ):
+                           _brand (brand), _model(model), _seatsNumber(seatsNumber)
 {
-   if ( numPlazas <= 0 )
+   if ( seatsNumber <= 0 )
    {
-      throw std::invalid_argument ( "StarFighter::StarFighter: el número de"
-                                    " plazas no puede ser negativo" );
+      throw std::invalid_argument ( "StarFighter::StarFighter: the number of"
+                                            " seats can't be negative" );
    }
 
    _numStarFighters++;
-   _idSF = _numStarFighters;
+   _starFighterID = _numStarFighters;
 }
 
-StarFighter::StarFighter ( const StarFighter& orig ): _marca(orig._marca),
-                                                      _modelo(orig._modelo),
-                                                      _numPlazas(orig._numPlazas)
+StarFighter::StarFighter ( const StarFighter& orig ): _brand(orig._brand),
+                                                      _model(orig._model),
+                                                      _seatsNumber(orig._seatsNumber)
 {
    _numStarFighters++;
-   _idSF = _numStarFighters;
+   _starFighterID = _numStarFighters;
 }
 
 StarFighter::~StarFighter ( )
@@ -44,74 +44,74 @@ StarFighter::~StarFighter ( )
 }
 
 /**
- * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción
- *       correspondiente. El número de plazas no puede ser <= 0
+ * @todo You have to add the parameter checkup and throw the corresponding
+ *       exception. The number of seats can't be <=0
  */
-void StarFighter::setNumPlazas ( int numPlazas )
+void StarFighter::setSeatsNumber( int seatsNumber )
 {
-   this->_numPlazas = numPlazas;
+   this->_seatsNumber = seatsNumber;
+}t
+
+int StarFighter::getSeatsNumber( ) const
+{
+   return _seatsNumber;
 }
 
-int StarFighter::getNumPlazas ( ) const
+void StarFighter::setModel( string model )
 {
-   return _numPlazas;
+   this->_model = model;
 }
 
-void StarFighter::setModelo ( string modelo )
+string StarFighter::getModel( ) const
 {
-   this->_modelo = modelo;
+   return _model;
 }
 
-string StarFighter::getModelo ( ) const
+void StarFighter::setBrand( string brand )
 {
-   return _modelo;
+   this->_brand = brand;
 }
 
-void StarFighter::setMarca ( string marca )
+string StarFighter::getBrand( ) const
 {
-   this->_marca = marca;
+   return _brand;
 }
 
-string StarFighter::getMarca ( ) const
+int StarFighter::getStarFighterID( ) const
 {
-   return _marca;
-}
-
-int StarFighter::getIdSF ( ) const
-{
-   return _idSF;
+   return _starFighterID;
 }
 
 string StarFighter::toCSV ()
 {
    std::stringstream aux;
 
-   aux << _marca << " ; "
-       << _modelo << " ; "
-       << _numPlazas;
+   aux << _brand << " ; "
+       << _model << " ; "
+       << _seatsNumber;
 
    return ( aux.str () );
 }
 
-StarFighter& StarFighter::operator = (const StarFighter& otro)
+StarFighter& StarFighter::operator =( const StarFighter &other )
 {
-   if ( this != &otro )
+   if ( this != &other )
    {
-      _marca = otro._marca;
-      _modelo = otro._modelo;
-      _numPlazas = otro._numPlazas;
+      _brand = other._brand;
+      _model = other._model;
+      _seatsNumber = other._seatsNumber;
    }
    
    return ( *this );
 }
 
-void StarFighter::fromCSV (string& datos)
+void StarFighter::fromCSV( string &data )
 {
    std::stringstream aux;
    
-   aux << datos;
+   aux << data;
    
-   getline ( aux, _marca, ';' );
-   getline ( aux, _modelo, ';' );
-   aux >> _numPlazas;
+   getline ( aux, _brand, ';' );
+   getline ( aux, _model, ';' );
+   aux >> _seatsNumber;
 }

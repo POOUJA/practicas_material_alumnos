@@ -2,142 +2,142 @@
  * @file main.cpp
  * @author algarcia
  *
- * @date 6 de abril de 2016
+ * @date April 6th 2016
  */
 
 #include <iostream>
 #include <fstream>
-#include "EquipoMutante.h"
+#include "MutantTeam.h"
 
 using namespace std;
 
-/***@brief Visualiza la información completa de un mutante*/
-void visualiza( Mutante& m) {
-    std::cout << "MUTANTE: " 
+/***@brief Visualizes the complete information of a Mutant*/
+void visualize( Mutant &m ) {
+    std::cout << "MUTANT: "
               << m.toCSV() << std::endl;
-    std::cout << "  Poderes : " << std::endl;
-    for (int i = 0; i < m.getNumPoderes(); i++) {
-        std::cout << "    - " << m.getPoder(i).toCSV()<<std::endl;
+    std::cout << "  Powers : " << std::endl;
+    for (int i = 0; i < m.getNumPowers(); i++) {
+        std::cout << "    - " << m.getPower(i).toCSV()<<std::endl;
     }
 }
-/***@brief Visualiza los datos de todos los miembros de un equipo mutante*/
-void visualiza( EquipoMutante& eq) {
-    std::cout << "EQUIPO: " << eq.getNombre() 
+/***@brief Visualizes the data of all of the members of the Mutant team*/
+void visualize( MutantTeam &eq ) {
+    std::cout << "TEAM: " << eq.getName()
               << " (Base: " << eq.getBase()<< ")" <<std::endl
               << "============================"
               << std::endl;
-    for (int i = 0; i < eq.getNumMiembros(); i++) {
-        visualiza(*(eq.getMutante(i)));
+    for (int i = 0; i < eq.getNumMembers(); i++) {
+        visualize( *( eq.getMutant( i )));
     }
 }
 
 //ToDo
-/***@brief Visualiza un vector de mutantes en formato CSV*/
-void visualiza() {
+/***@brief Visualizes a vector of Mutants in CSV format*/
+void visualize( ) {
     
 }
 
 
-/**@brief Almacena los mutantes de un vector en una archivo CSV 
-   @param Mutante* v[], vector de punteros a objetos mutantes
-   @param unsigned int tamv, número de mutantes almacenados en el vector
-   @param string nomArchivo, archivo donde se almacenarán los mutantes. Si ya sobreescribirá.
-   @post  Almacena los datos simples (sin poderes) de cada mutante en formato CSV en una línea diferente del Archivo indicado
+/**@brief Saves the Mutants of a vector in a CSV file
+   @param Mutant* v[], vector of pointers to Mutant objects
+   @param unsigned int sizeV, number of mutants saved in a vector
+   @param string fileName, file where the Mutants are going to be saved. If there's anything, it'll overwrite
+   @post  Saves simple data (without powers) of each Mutant in a CSV format in a different line from the specified file
  */
-void almacenaMutantesCSV(Mutante* v[], unsigned int tamv, std::string nomArchivo) {
-    std::ofstream archivo;
-    archivo.open(nomArchivo.c_str()); //c_str() no es necesario si compilador soporta >= C++11
+void saveMutantsCSV( Mutant **v, unsigned int sizeV, std::string fileName ) {
+    std::ofstream file;
+    file.open(fileName.c_str()); //c_str() is  not necessary if the compiler supports >= C++11
 
-    if (archivo.good()) {
-        for (unsigned int i = 0; i < tamv; i++) {
-            archivo << v[i]->toCSV() << std::endl;
+    if (file.good()) {
+        for (unsigned int i = 0; i < sizeV; i++) {
+            file << v[i]->toCSV() << std::endl;
         }
-        archivo.close();
+        file.close();
     }
 }
 
 //ToDo
-/**@brief Recupera los mutantes de un fichero CSV en un vector
-   @param Mutante* v[], vector de punteros a objetos mutantes
-   @param unsigned int tamv, número máximo de mutantes que se pueden almacenar en v
-   @param string nomArchivo, archivo de donde se recuperarán los mutantes en formato CSV
-   @post  Las posiciones del vector se sobreescribirán
-   @post  Recupera mutantes del fichero y los crea en memoria dinámica, asociando cada uno a una posición del vector
-   @return número de mutantes leídos y creados (como máximo será tamv)
+/**@brief Retrieves mutants from a CSV file to a vector
+   @param Mutant* v[], vector of pointers to Mutant objects
+   @param unsigned int sizeV, maximum number of mutants that can be saved in v
+   @param string fileName, file from which Mutants are retieved in CSV format
+   @post  Positions will be overwritten
+   @post  Retrieves Mutants from the file and it creates them in dynamic memory, associating each one to a position
+          of the vector
+   @return number of read and created (max is going to be sizeV)
  */
-int recuperaMutantesCSV(Mutante* v[], unsigned int tamv, std::string nomArchivo) {
+int retrieveMutantsCSV( Mutant **v, unsigned int sizeV, std::string fileName) {
 
 }
     
-/**@brief inicializa vector de mutantes y crea algunos
-   @pre v debe tener al menos tamv posiciones
-   @post se inicializan todas las posiciones de v a 0 o a un nuevo mutante 
-   @return número de muntantes creados en el vector*/
-int inicializaMutantes(Mutante* v[], int tamv) {
+/**@brief initializes vector of Mutants and creates some
+   @pre v has to have at least sizeV positions
+   @post will initialize all v's position to 0 or a new Mutant
+   @return number of created Muntats in the vector*/
+int initializeMutants( Mutant **v, int sizeV ) {
     
-    for (int i = 0; i < tamv; i++) {
+    for (int i = 0; i < sizeV; i++) {
         v[i]=0;
     }
 
-    int creados=0;
-    v[creados++] = new Mutante("Logan", "Lobezno", 19320101, "Estadounidense");
-    v[creados++] = new Mutante("Marie", "Rogue", 19700101, "Estadounidense");
-    v[creados++] = new Mutante("Ororo", "Tormenta", 19500101, "Keniata");
-    v[creados++] = new Mutante("Scott", "Cíclope", 19300101, "Estadounidense");
-    v[creados++] = new Mutante("Charles", "Profesor X", 19200101, "Estadounidense");
+    int created=0;
+    v[created++] = new Mutant("Logan", "Wolverine", 19320101, "American");
+    v[created++] = new Mutant("Marie", "Rogue", 19700101, "American");
+    v[created++] = new Mutant("Ororo", "Thunder", 19500101, "Kenian");
+    v[created++] = new Mutant("Scott", "Cyclop", 19300101, "American");
+    v[created++] = new Mutant("Charles", "Professor X", 19200101, "American");
 
-    return creados;
+    return created;
 }
 
 
 int main(int argc, char** argv) {
 
-    const int MAXMUTANTES = 5;
-    Mutante* mutantes[MAXMUTANTES];
-    int numMutantes=0;
-    std::string archivoMutantes="mutantes.csv";
+    const int MAXMUTANTS = 5;
+    Mutant* mutants[MAXMUTANTS];
+    int numMutants=0;
+    std::string mutantsFile="mutants.csv";
     
-    numMutantes=inicializaMutantes(mutantes,MAXMUTANTES);
-    //ToDo, recuperar mutantes del archivo 
+    numMutants= initializeMutants( mutants, MAXMUTANTS );
+    //ToDo, retrieves Mutants from the file
     
-    //ToDo, Visualizar vector de muntantes en formato CSV
+    //ToDo, Visualizes vector of Mutants in CSV format
     
     
-    //Creación de los equipos y configuración de poderes
-    EquipoMutante equipo1("Patrulla X", "Mansión");
-    equipo1.addMutante(mutantes[1]);
-    equipo1.addMutante(mutantes[3]);
+    //Creation of the teams of configuration of powers
+    MutantTeam team1("Patrol X", "Mansion");
+    team1.addMutant(mutants[1]);
+    team1.addMutant(mutants[3]);
 
-    EquipoMutante equipo2("Los malos", "Casa Magneto");
-    equipo2.addMutante(mutantes[0]);
-    equipo2.addMutante(mutantes[2]);
-    equipo2.addMutante(mutantes[4]);
+    MutantTeam team2("The bad guys", "Magneto's house");
+    team2.addMutant(mutants[0]);
+    team2.addMutant(mutants[2]);
+    team2.addMutant(mutants[4]);
 
-    //Diferentes formas de añadir poderes: usando datos o objetos de tipo Poder
-    mutantes[0]->addPoder("longevidad", "vivir mucho", "su cuerpo", 0);
-    mutantes[1]->addPoder(Poder("absorción", "absorve poderes de otros mutantes",
-            "cualquier mutante", 100));
-    mutantes[2]->addPoderFisico("clima", "puede manejar el clima", "atmósfera",
+    //Different ways of adding powers_ using data or objects of type Power
+    mutants[0]->addPower("longevity", "live a lot", "the body", 0);
+    mutants[1]->addPower(Power("absorption", "absorbs powers from other Mutants",
+            "any Mutant", 100));
+    mutants[2]->addPhysicalPower("weather", "can control weather", "atmosphere",
             150);
-    mutantes[3]->addPoder(PoderFisico("rayo", "expulsa láser por los ojos",
-            "lo que pille por delante", 500));
-    mutantes[4]->addPoder(PoderPsiquico("AtacaMente", "ataca la mente de su enemigo",
-            "cualquiera", 150));
+    mutants[3]->addPower(PhysicalPower("laser", "shoots laser from the eyes",
+            "anything it touches", 500));
+    mutants[4]->addPower(PsychicPower("MindAttack", "attacks enemies' minds",
+            "any", 150));
 
-    visualiza(equipo1);
-    visualiza(equipo2);
+    visualize( team1 );
+    visualize( team2 );
     
-    //ToDo, Crear poder físico asfixia y añadir a Doctor X
+    //ToDo, Create physical power 'suffocate' and add Doctor
     
-    //ToDo, Ordenar y visualizar vector de mutantes con plantilla de método Ordena
-    //Comprobar que DoctorX a mejorado su posición por que ha aumentado su capacidad
-    //Destructiva
+    //ToDo, Order and visualize a vector of Mutants with template of Order method
+    //Check that DoctorX has improved his position as his Destructive capacity has increased
 
-    almacenaMutantesCSV(mutantes, 5, archivoMutantes);
+    saveMutantsCSV( mutants, 5, mutantsFile );
 
-    for (int i = 0; i < MAXMUTANTES; i++) {
-        delete mutantes[i];
-        mutantes[i] = 0;
+    for (int i = 0; i < MAXMUTANTS; i++) {
+        delete mutants[i];
+        mutants[i] = 0;
     }
 
     return 0;
