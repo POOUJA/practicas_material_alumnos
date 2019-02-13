@@ -43,6 +43,9 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>11</standard>
+        </ccTool>
       </compileType>
       <item path="Fecha.cpp" ex="false" tool="1" flavor2="0">
       </item>

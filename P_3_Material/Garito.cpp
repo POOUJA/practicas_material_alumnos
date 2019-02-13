@@ -14,8 +14,8 @@
  * @post Crea un nuevo objeto de la clase Garito
  */
 Garito::Garito(std::string nombre, std::string direccion) :
-_nombre(nombre)
-, _direccion(direccion) {
+    _nombre(nombre),
+    _direccion(direccion) {
 }
 
 /**
@@ -25,8 +25,8 @@ _nombre(nombre)
  */
 
 Garito::Garito(const Garito& orig) :
-_nombre(orig._nombre)
-, _direccion(orig._direccion) {
+    _nombre(orig._nombre),
+    _direccion(orig._direccion) {
 }
 
 /**

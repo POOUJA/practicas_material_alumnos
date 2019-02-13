@@ -12,9 +12,10 @@
  * @post Construye in nuevo objeto estableciendo el dia, mes y año a los que indique el sistema
  */
 Fecha::Fecha() :
-_dia(0)
-, _mes(0)
-, _anio(0) {
+    _dia(0),
+    _mes(0),
+    _anio(0) {
+
     struct tm *tmp;
     time_t fecha;
     time(&fecha);
@@ -32,9 +33,9 @@ _dia(0)
  * @post Crea un objeto con los valores indicados
  */
 Fecha::Fecha( int dia, int mes, int anio) :
-_dia(dia)
-, _mes(mes)
-, _anio(anio) {
+    _dia(dia),
+    _mes(mes),
+    _anio(anio) {
 }
 
 /**
@@ -44,9 +45,9 @@ _dia(dia)
  */
 
 Fecha::Fecha(const Fecha& orig):
-_dia(orig._dia)
-, _mes(orig._mes)
-, _anio(orig._anio) {
+    _dia(orig._dia),
+    _mes(orig._mes),
+    _anio(orig._anio) {
 }
 
 /**

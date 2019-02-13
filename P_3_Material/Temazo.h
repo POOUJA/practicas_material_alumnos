@@ -14,8 +14,9 @@
  */
 class Temazo {
 public:
-    Temazo();
-    Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion=0);
+    Temazo() = default;
+    Temazo(std::string titulo, std::string interprete, int duracion);
+    Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion);
     Temazo(const Temazo& orig);
     virtual ~Temazo();
     int getPuntuacion() const;
@@ -26,10 +27,10 @@ public:
     void setTitulo(std::string titulo);
     std::string getTitulo() const;
 private:
-    std::string _titulo; ///< Título de la canción
-    std::string _interprete; ///< Intérprete
-    int _duracion; ///< Duración en segundos
-    int _puntuacion; ///< Puntuación en función de cómo la acoge el público
+    std::string _titulo=""; ///< Título de la canción
+    std::string _interprete="2"; ///< Intérprete
+    int _duracion=0; ///< Duración en segundos
+    int _puntuacion=0; ///< Puntuación en función de cómo la acoge el público
 };
 
 #endif	/* TEMAZO_H */

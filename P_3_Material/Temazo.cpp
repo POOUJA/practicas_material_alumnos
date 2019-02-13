@@ -7,15 +7,17 @@
 #include "Temazo.h"
 
 /**
- * @brief Constructor por defecto de la clase
- * @post Crea un objeto de tipo Temazo
+ * @brief Constructor parametrizado
+ * @param titulo Título del temazo
+ * @param interprete Persona o grupo que lo interpreta
+ * @param duracion Duración en segundos
+ * @post Crea un objeto de tipo Temazo con puntuación 0
  */
-Temazo::Temazo() :
-_titulo("")
-, _interprete("")
-, _duracion(0)
-, _puntuacion(0) {
+Temazo::Temazo(std::string titulo, std::string interprete, int duracion) :
+    Temazo(titulo, interprete, duracion,0)
+{
 }
+
 
 /**
  * @brief Constructor parametrizado
@@ -26,10 +28,10 @@ _titulo("")
  * @post Crea un objeto de tipo Temazo
  */
 Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion) :
-_titulo(titulo)
-, _interprete(interprete)
-, _duracion(duracion)
-, _puntuacion(puntuacion) {
+    _titulo(titulo),
+    _interprete(interprete),
+    _duracion(duracion),
+    _puntuacion(puntuacion) {
 }
 
 /**
@@ -39,10 +41,10 @@ _titulo(titulo)
  */
 
 Temazo::Temazo(const Temazo& orig) :
-_titulo(orig._titulo)
-, _interprete(orig._interprete)
-, _duracion(orig._duracion)
-, _puntuacion(orig._puntuacion) {
+    _titulo(orig._titulo),
+    _interprete(orig._interprete),
+    _duracion(orig._duracion),
+    _puntuacion(orig._puntuacion) {
 }
 
 /**

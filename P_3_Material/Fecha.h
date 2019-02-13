@@ -24,9 +24,9 @@ public:
     void setDia(int dia);
     int getDia() const;
 private:
-    int _dia; ///< Dia dentro de un mes
-    int _mes; ///< Mes dentro de un año
-    int _anio; ///< Año de la fecha almacenada
+    int _dia=0; ///< Dia dentro de un mes
+    int _mes=0; ///< Mes dentro de un año
+    int _anio=0; ///< Año de la fecha almacenada
 };
 
 #endif	/* FECHA_H */

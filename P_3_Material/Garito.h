@@ -15,7 +15,8 @@
  */
 class Garito {
 public:
-    Garito(std::string nombre="", std::string direccion="");
+    Garito() = default;
+    Garito(std::string nombre, std::string direccion);
     Garito(const Garito& orig);
     virtual ~Garito();
     void setDireccion(std::string direccion);
@@ -23,8 +24,8 @@ public:
     void setNombre(std::string nombre);
     std::string getNombre() const;
 private:
-    std::string _nombre; ///< Nombre del local
-    std::string _direccion; ///< Dirección del local
+    std::string _nombre="Sin nombre"; ///< Nombre del local
+    std::string _direccion="Desconocida"; ///< Dirección del local
 };
 
 #endif	/* GARITO_H */
