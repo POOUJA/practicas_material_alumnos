@@ -10,25 +10,25 @@
 #include <iostream>
 
 #include "Piloto.h"
-#include "Informe.h"
+
+using std::string;
 
 int Piloto::_numPilotos = 0;
 
-Piloto::Piloto ( ): _nombre(""), _nacionalidad(""), _numMisiones(0),
-                    _fechaUltimaMision(0), _incidenciasUltimaMision(""), _nave(0),
-                    _auxiliar(0)
+Piloto::Piloto ( ): Piloto (    "","",
+                                0, "", 0,
+                                nullptr, nullptr )
 {
-   _numPilotos++;
-   _idP = _numPilotos;
 }
 
-Piloto::Piloto ( string nombre, string nacionalidad, long fechaUM,
-                 string incidenciasUM, int numMisiones, StarFighter *nave,
-                 Droide *auxiliar ): _nombre (nombre), _nacionalidad (nacionalidad),
-                                     _fechaUltimaMision (fechaUM),
-                                     _incidenciasUltimaMision (incidenciasUM),
-                                     _numMisiones (numMisiones), _nave (nave),
-                                     _auxiliar (auxiliar)
+Piloto::Piloto ( string nombre, string nacionalidad, 
+                 long fechaUM,string incidenciasUM, int numMisiones,
+                 StarFighter *nave, Droide *auxiliar ): 
+        _nombre (nombre), _nacionalidad (nacionalidad),
+        _fechaUltimaMision (fechaUM),
+        _incidenciasUltimaMision (incidenciasUM),
+        _numMisiones (numMisiones),
+        _nave (nave), _auxiliar (auxiliar)
 {
    if ( numMisiones < 0 )
    {
@@ -46,12 +46,13 @@ Piloto::Piloto ( string nombre, string nacionalidad, long fechaUM,
    _idP = _numPilotos;
 }
 
-Piloto::Piloto ( const Piloto& orig ): _nombre(orig._nombre),
-                                       _nacionalidad(orig._nacionalidad),
-                                       _numMisiones(orig._numMisiones),
-                                       _fechaUltimaMision(orig._fechaUltimaMision),
-                                       _incidenciasUltimaMision(orig._incidenciasUltimaMision),
-                                       _nave (0), _auxiliar(0)
+Piloto::Piloto ( const Piloto& orig ):
+    _nombre(orig._nombre),
+    _nacionalidad(orig._nacionalidad),
+    _numMisiones(orig._numMisiones),
+    _fechaUltimaMision(orig._fechaUltimaMision),
+    _incidenciasUltimaMision(orig._incidenciasUltimaMision),
+    _nave (nullptr), _auxiliar(nullptr)
 {
    _numPilotos++;
    _idP = _numPilotos;
@@ -59,12 +60,12 @@ Piloto::Piloto ( const Piloto& orig ): _nombre(orig._nombre),
 
 Piloto::~Piloto ( )
 {
-   if ( _nave != 0 )
+   if ( _nave != nullptr )
    {
       std::cerr << "Piloto::~Piloto: se intenta destruir un piloto con nave"
                    " asignada";
    }
-	 if ( _auxiliar != 0 )
+	 if ( _auxiliar != nullptr )
    {
       std::cerr << "Piloto::~Piloto: se intenta destruir un piloto con auxiliar"
                    " asignado";
@@ -154,7 +155,7 @@ string Piloto::toCSV ()
        << _fechaUltimaMision << " ; "
        << _incidenciasUltimaMision;
 
-   return ( aux.str () );
+   return aux.str ();
 }
 
 Piloto& Piloto::operator = ( const Piloto& otro )
@@ -170,7 +171,7 @@ Piloto& Piloto::operator = ( const Piloto& otro )
       _auxiliar = otro._auxiliar;
    }
    
-   return ( *this );
+   return *this ;
 }
 
 void Piloto::setNave ( StarFighter* nave )
@@ -206,7 +207,7 @@ Informe Piloto::generaInforme ()
    nuevo.setFechaEstelar (this->_fechaUltimaMision);
    nuevo.setDatosInforme (aux.str ());
    
-   return ( nuevo );
+   return nuevo ;
 }
 
 void Piloto::fromCSV ( string& datos )

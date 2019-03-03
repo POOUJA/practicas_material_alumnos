@@ -10,12 +10,12 @@
 
 #include "StarFighter.h"
 
+using std::string;
+
 int StarFighter::_numStarFighters = 0;
 
-StarFighter::StarFighter ( ): _marca (""), _modelo (""), _numPlazas (1)
+StarFighter::StarFighter ( ): StarFighter("","",1)
 {
-   _numStarFighters++;
-   _idSF = _numStarFighters;
 }
 
 StarFighter::StarFighter ( string marca, string modelo, int numPlazas ):
@@ -31,12 +31,9 @@ StarFighter::StarFighter ( string marca, string modelo, int numPlazas ):
    _idSF = _numStarFighters;
 }
 
-StarFighter::StarFighter ( const StarFighter& orig ): _marca(orig._marca),
-                                                      _modelo(orig._modelo),
-                                                      _numPlazas(orig._numPlazas)
+StarFighter::StarFighter ( const StarFighter& orig ):
+    StarFighter(orig._marca, orig._modelo, orig._numPlazas)
 {
-   _numStarFighters++;
-   _idSF = _numStarFighters;
 }
 
 StarFighter::~StarFighter ( )
@@ -90,7 +87,7 @@ string StarFighter::toCSV ()
        << _modelo << " ; "
        << _numPlazas;
 
-   return ( aux.str () );
+   return aux.str ();
 }
 
 StarFighter& StarFighter::operator = (const StarFighter& otro)
@@ -102,7 +99,7 @@ StarFighter& StarFighter::operator = (const StarFighter& otro)
       _numPlazas = otro._numPlazas;
    }
    
-   return ( *this );
+   return *this;
 }
 
 void StarFighter::fromCSV (string& datos)

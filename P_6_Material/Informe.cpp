@@ -10,17 +10,18 @@
 
 #include "Informe.h"
 
+using std::string;
+
 long Informe::_numInformes = 0;
 
-Informe::Informe ( ): _idPiloto(0), _fechaEstelar(0), _datosInforme("")
-{
-   _numInformes++;
-   _idI = _numInformes;
+Informe::Informe ( ): Informe(0,0, "") {
+   
 }
 
-Informe::Informe ( int idPiloto, long fecha, string datos ): _idPiloto(idPiloto),
-                                                             _fechaEstelar(fecha),
-                                                             _datosInforme(datos)
+Informe::Informe ( int idPiloto, long fecha, string datos ):
+    _idPiloto(idPiloto),
+    _fechaEstelar(fecha),
+    _datosInforme(datos)
 {
    if ( idPiloto < 0 )
    {
@@ -38,12 +39,10 @@ Informe::Informe ( int idPiloto, long fecha, string datos ): _idPiloto(idPiloto)
    _idI = _numInformes;
 }
 
-Informe::Informe ( const Informe& orig ): _idPiloto(orig._idPiloto),
-                                          _fechaEstelar(orig._fechaEstelar),
-                                          _datosInforme(orig._datosInforme)
+Informe::Informe ( const Informe& orig ): Informe(orig._idPiloto,
+                                                orig._fechaEstelar,
+                                                orig._datosInforme)
 {
-   _numInformes++;
-   _idI = _numInformes;
 }
 
 Informe::~Informe ( )
@@ -99,7 +98,7 @@ string Informe::toCSV ()
        << "Piloto: " << _idPiloto << " ; "
        << _datosInforme;
 
-   return ( aux.str () );
+   return aux.str();
 }
 
 Informe& Informe::operator = ( const Informe& otro )
@@ -111,5 +110,5 @@ Informe& Informe::operator = ( const Informe& otro )
       _datosInforme = otro._datosInforme;
    }
    
-   return ( *this );
+   return  *this ;
 }

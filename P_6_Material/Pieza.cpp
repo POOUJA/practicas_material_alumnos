@@ -7,6 +7,8 @@
 
 #include "Pieza.h"
 
+using std::string;
+
 /**
  * @todo Hay que comprobar que el peso no sea un valor negativo. Si lo es, se
  *       lanzaría una excepción de tipo std::invalid_argument
@@ -17,8 +19,9 @@ Pieza::Pieza ( string nombre, float peso,
 {
 }
 
-Pieza::Pieza ( const Pieza& orig ): _nombre(orig._nombre), _peso(orig._peso),
-                                    _descripcion(orig._descripcion)
+Pieza::Pieza ( const Pieza& orig ): Pieza ( orig._nombre,
+                                            orig._peso,
+                                            orig._descripcion)
 {
 }
 
@@ -62,9 +65,11 @@ string Pieza::getNombre ( ) const
 
 Pieza& Pieza::operator = (const Pieza& orig)
 {
-   _nombre = orig._nombre;
-   _descripcion = orig._descripcion;
-   _peso = orig._peso;
+    if (this!= &orig) {
+        _nombre = orig._nombre;
+        _descripcion = orig._descripcion;
+        _peso = orig._peso;
+    }
    
-   return ( *this );
+   return *this;
 }

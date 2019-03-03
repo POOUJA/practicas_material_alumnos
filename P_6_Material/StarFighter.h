@@ -10,8 +10,6 @@
 
 #include <string>
 
-using std::string;
-
 /**
  * @brief
  */
@@ -19,26 +17,26 @@ class StarFighter
 {
    private:
       static int _numStarFighters;
-      int _idSF;
-      string _marca;
-      string _modelo;
-      int _numPlazas;
+      int _idSF=0;
+      std::string _marca;
+      std::string _modelo;
+      int _numPlazas = 1;
 
    public:
       StarFighter ();
-      StarFighter ( string marca, string modelo, int numPlazas=1 );
+      StarFighter ( std::string marca, std::string modelo, int numPlazas );
       StarFighter ( const StarFighter& orig );
       virtual ~StarFighter ( );
       void setNumPlazas ( int numPlazas );
       int getNumPlazas ( ) const;
-      void setModelo ( string modelo );
-      string getModelo ( ) const;
-      void setMarca ( string marca );
-      string getMarca ( ) const;
+      void setModelo ( std::string modelo );
+      std::string getModelo ( ) const;
+      void setMarca ( std::string marca );
+      std::string getMarca ( ) const;
       int getIdSF ( ) const;
-      string toCSV ();
+      std::string toCSV ();
       StarFighter& operator= ( const StarFighter& otro );
-      void fromCSV ( string& datos );
+      void fromCSV ( std::string& datos );
 };
 
 #endif /* STARFIGHTER_H */
