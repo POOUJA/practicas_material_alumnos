@@ -10,7 +10,6 @@
 
 #include <string>
 
-using std::string;
 
 /**
  * @brief
@@ -18,20 +17,21 @@ using std::string;
 class Pieza
 {
    private:
-      string _nombre;
-      float _peso;
-      string _descripcion;
+      std::string _nombre = "";
+      float _peso = 0;
+      std::string _descripcion = "";
 
    public:
-      Pieza ( string nombre="", float peso=0, string descripcion="" );
+      Pieza () = default;
+      Pieza ( std::string nombre, float peso, std::string descripcion );
       Pieza ( const Pieza& orig );
       virtual ~Pieza ( );
-      void setDescripcion ( string descripcion );
-      string getDescripcion ( ) const;
-      void setPeso ( float peso );
+      Pieza& setDescripcion ( std::string descripcion );
+      std::string getDescripcion ( ) const;
+      Pieza& setPeso ( float peso );
       float getPeso ( ) const;
-      void setNombre ( string nombre );
-      string getNombre ( ) const;
+      Pieza& setNombre ( std::string nombre );
+      std::string getNombre ( ) const;
       Pieza& operator= ( const Pieza& orig );
 };
 
