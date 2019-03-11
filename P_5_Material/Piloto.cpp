@@ -10,34 +10,15 @@
 
 #include "Piloto.h"
 
+using std::string;
+
 int Piloto::_numPilotos = 0;
 
-Piloto::Piloto ( ): _nombre(""), _nacionalidad(""), _numMisiones(0),
-                    _fechaUltimaMision(0), _incidenciasUltimaMision("")
-{
-   _numPilotos++;
-   _idP = _numPilotos;
-}
+Piloto::Piloto ( ): Piloto ( "" )
+{ }
 
-Piloto::Piloto ( string nombre, string nacionalidad, long fechaUM,
-                 string incidenciasUM, int numMisiones ):
-                 _nombre (nombre), _nacionalidad (nacionalidad),
-                 _fechaUltimaMision (fechaUM),
-                 _incidenciasUltimaMision ( incidenciasUM ),
-                 _numMisiones ( numMisiones )
+Piloto::Piloto ( string nombre ): _nombre (nombre)
 {
-   if ( numMisiones < 0 )
-   {
-      throw std::invalid_argument ( "Piloto::Piloto: el número de misiones no"
-                                    " puede ser negativo" );
-   }
-   
-   if ( ( numMisiones == 0 ) && ( incidenciasUM != "" ) )
-   {
-      throw std::invalid_argument ( "Piloto::Piloto: un piloto sin misiones no"
-                                    " puede tener incidencias");
-   }
-
    _numPilotos++;
    _idP = _numPilotos;
 }
@@ -53,8 +34,7 @@ Piloto::Piloto ( const Piloto& orig ): _nombre(orig._nombre),
 }
 
 Piloto::~Piloto ( )
-{
-}
+{ }
 
 /**
  * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción

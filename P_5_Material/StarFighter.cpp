@@ -10,23 +10,16 @@
 
 #include "StarFighter.h"
 
+using std::string;
+
 int StarFighter::_numStarFighters = 0;
 
-StarFighter::StarFighter ( ): _marca (""), _modelo (""), _numPlazas (1)
-{
-   _numStarFighters++;
-   _idSF = _numStarFighters;
-}
+StarFighter::StarFighter ( ): StarFighter ( "", "" )
+{ }
 
-StarFighter::StarFighter ( string marca, string modelo, int numPlazas ):
-                           _marca (marca), _modelo(modelo), _numPlazas(numPlazas)
+StarFighter::StarFighter ( string marca, string modelo ): _marca (marca),
+                                                          _modelo(modelo)
 {
-   if ( numPlazas <= 0 )
-   {
-      throw std::invalid_argument ( "StarFighter::StarFighter: el número de"
-                                    " plazas no puede ser negativo" );
-   }
-
    _numStarFighters++;
    _idSF = _numStarFighters;
 }
@@ -40,8 +33,7 @@ StarFighter::StarFighter ( const StarFighter& orig ): _marca(orig._marca),
 }
 
 StarFighter::~StarFighter ( )
-{
-}
+{ }
 
 /**
  * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción

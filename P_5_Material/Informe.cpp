@@ -10,30 +10,16 @@
 
 #include "Informe.h"
 
+using std::string;
+
 long Informe::_numInformes = 0;
 
-Informe::Informe ( ): _idPiloto(0), _fechaEstelar(0), _datosInforme("")
+Informe::Informe ( ): Informe ( 0 )
+                      
+{ }
+
+Informe::Informe ( long fecha ): _fechaEstelar(fecha)
 {
-   _numInformes++;
-   _idI = _numInformes;
-}
-
-Informe::Informe ( int idPiloto, long fecha, string datos ): _idPiloto(idPiloto),
-                                                             _fechaEstelar(fecha),
-                                                             _datosInforme(datos)
-{
-   if ( idPiloto < 0 )
-   {
-      throw std::invalid_argument ( "Informe::Informe: el identificador del"
-                                    " piloto no puede ser negativo" );
-   }
-
-   if ( fecha < 0 )
-   {
-      throw std::invalid_argument ( "Informe::Informe: la fecha no puede ser"
-                                    " negativa" );
-   }
-
    _numInformes++;
    _idI = _numInformes;
 }
@@ -50,9 +36,11 @@ Informe::~Informe ( )
 {
 }
 
-void Informe::setDatosInforme ( string datosInforme )
+Informe& Informe::setDatosInforme ( string datosInforme )
 {
    this->_datosInforme = datosInforme;
+   
+   return ( *this );
 }
 
 string Informe::getDatosInforme ( ) const
@@ -63,9 +51,11 @@ string Informe::getDatosInforme ( ) const
 /**
  * @todo Comprobar el valor, y si es negativo, lanzar excepción
  */
-void Informe::setFechaEstelar ( long fechaEstelar )
+Informe& Informe::setFechaEstelar ( long fechaEstelar )
 {
    this->_fechaEstelar = fechaEstelar;
+
+   return ( *this );
 }
 
 long Informe::getFechaEstelar ( ) const
@@ -76,9 +66,11 @@ long Informe::getFechaEstelar ( ) const
 /**
  * @todo Comprobar el valor, y si es negativo, lanzar excepción
  */
-void Informe::setIdPiloto ( int idPiloto )
+Informe& Informe::setIdPiloto ( int idPiloto )
 {
    this->_idPiloto = idPiloto;
+   
+   return ( *this );
 }
 
 int Informe::getIdPiloto ( ) const

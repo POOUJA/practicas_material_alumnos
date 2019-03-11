@@ -9,13 +9,12 @@
 
 #include "Droide.h"
 
+using std::string;
+
 int Droide::_numDroides = 0;
 
-Droide::Droide ( ): _marca(""), _modelo("")
-{
-   _numDroides++;
-   _idD = _numDroides;
-}
+Droide::Droide ( ): Droide ( "", "" )
+{ }
 
 Droide::Droide ( string marca, string modelo ): _marca (marca), _modelo (modelo)
 {
@@ -30,8 +29,7 @@ Droide::Droide ( const Droide& orig ): _marca(orig._marca), _modelo(orig._modelo
 }
 
 Droide::~Droide ( )
-{
-}
+{ }
 
 int Droide::getIdD ( ) const
 {

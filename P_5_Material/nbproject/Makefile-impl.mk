@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=P_5_PtoPartida
+PROJECTNAME=P_5_Material
 
 # Active Configuration
 DEFAULTCONF=Debug

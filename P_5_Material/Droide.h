@@ -10,8 +10,6 @@
 
 #include <string>
 
-using std::string;
-
 /**
  * @brief
  */
@@ -19,21 +17,21 @@ class Droide
 {
    private:
       static int _numDroides; ///< Número de droides instanciados
-      int _idD; ///< Identificador del droide
-      string _marca; ///< Marca del droide
-      string _modelo; ///< Modelo de droide
+      int _idD = 0;           ///< Identificador del droide
+      std::string _marca;     ///< Marca del droide
+      std::string _modelo;    ///< Modelo de droide
 
    public:
       Droide ( );
-      Droide ( string marca, string modelo );
+      Droide ( std::string marca, std::string modelo );
       Droide ( const Droide& orig );
       virtual ~Droide ( );
       int getIdD ( ) const;
-      void setModelo ( string modelo );
-      string getModelo ( ) const;
-      void setMarca ( string marca );
-      string getMarca ( ) const;
-      string toCSV () const;
+      void setModelo ( std::string modelo );
+      std::string getModelo ( ) const;
+      void setMarca ( std::string marca );
+      std::string getMarca ( ) const;
+      std::string toCSV () const;
       Droide& operator= ( const Droide& otro );
 };
 
