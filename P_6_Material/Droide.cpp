@@ -9,12 +9,11 @@
 
 #include "Droide.h"
 
+using std::string;
+
 int Droide::_numDroides = 0;
 
-Droide::Droide ( ): _marca(""), _modelo("")
-{
-   _numDroides++;
-   _idD = _numDroides;
+Droide::Droide ( ): Droide ( "", "" ) {
 }
 
 Droide::Droide ( string marca, string modelo ): _marca (marca), _modelo (modelo)
@@ -23,14 +22,10 @@ Droide::Droide ( string marca, string modelo ): _marca (marca), _modelo (modelo)
    _idD = _numDroides;
 }
 
-Droide::Droide ( const Droide& orig ): _marca(orig._marca), _modelo(orig._modelo)
-{
-   _numDroides++;
-   _idD = _numDroides;
+Droide::Droide ( const Droide& orig ): Droide(orig._marca, orig._modelo) {
 }
 
-Droide::~Droide ( )
-{
+Droide::~Droide ( ) {
 }
 
 int Droide::getIdD ( ) const
@@ -38,9 +33,10 @@ int Droide::getIdD ( ) const
    return _idD;
 }
 
-void Droide::setModelo ( string modelo )
+Droide& Droide::setModelo ( string modelo )
 {
    this->_modelo = modelo;
+   return *this;
 }
 
 string Droide::getModelo ( ) const
@@ -48,9 +44,10 @@ string Droide::getModelo ( ) const
    return _modelo;
 }
 
-void Droide::setMarca ( string marca )
+Droide& Droide::setMarca ( string marca )
 {
    this->_marca = marca;
+   return *this;
 }
 
 string Droide::getMarca ( ) const
@@ -58,14 +55,14 @@ string Droide::getMarca ( ) const
    return _marca;
 }
 
-string Droide::toCSV ()
+string Droide::toCSV () const
 {
    std::stringstream aux;
 
    aux << _marca << " ; "
        << _modelo;
 
-   return ( aux.str () );
+   return  aux.str ();
 }
 
 Droide& Droide::operator = ( const Droide& otro )
@@ -76,7 +73,7 @@ Droide& Droide::operator = ( const Droide& otro )
       _modelo = otro._modelo;
    }
    
-   return ( *this );
+   return *this ;
 }
 
 void Droide::fromCSV ( string& datos )

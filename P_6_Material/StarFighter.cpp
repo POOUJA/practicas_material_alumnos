@@ -10,30 +10,23 @@
 
 #include "StarFighter.h"
 
+using std::string;
+
 int StarFighter::_numStarFighters = 0;
 
-StarFighter::StarFighter ( ): _marca (""), _modelo (""), _numPlazas (1)
+StarFighter::StarFighter ( ): StarFighter ( "", "" ) {
+}
+
+StarFighter::StarFighter ( string marca, string modelo ):
+                           _marca (marca), _modelo(modelo)
 {
    _numStarFighters++;
    _idSF = _numStarFighters;
 }
 
-StarFighter::StarFighter ( string marca, string modelo, int numPlazas ):
-                           _marca (marca), _modelo(modelo), _numPlazas(numPlazas)
-{
-   if ( numPlazas <= 0 )
-   {
-      throw std::invalid_argument ( "StarFighter::StarFighter: el número de"
-                                    " plazas no puede ser negativo" );
-   }
-
-   _numStarFighters++;
-   _idSF = _numStarFighters;
-}
-
-StarFighter::StarFighter ( const StarFighter& orig ): _marca(orig._marca),
-                                                      _modelo(orig._modelo),
-                                                      _numPlazas(orig._numPlazas)
+StarFighter::StarFighter ( const StarFighter& orig ):
+    _marca(orig._marca),_modelo(orig._modelo),
+    _numPlazas(orig._numPlazas)
 {
    _numStarFighters++;
    _idSF = _numStarFighters;
@@ -47,9 +40,16 @@ StarFighter::~StarFighter ( )
  * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción
  *       correspondiente. El número de plazas no puede ser <= 0
  */
-void StarFighter::setNumPlazas ( int numPlazas )
+StarFighter& StarFighter::setNumPlazas ( int numPlazas )
 {
-   this->_numPlazas = numPlazas;
+   if ( numPlazas <= 0 )
+   {
+      throw std::invalid_argument ( "StarFighter::StarFighter: el número de"
+                                    " plazas no puede ser negativo" );
+   }
+
+    this->_numPlazas = numPlazas;
+    return *this;
 }
 
 int StarFighter::getNumPlazas ( ) const
@@ -57,9 +57,10 @@ int StarFighter::getNumPlazas ( ) const
    return _numPlazas;
 }
 
-void StarFighter::setModelo ( string modelo )
+StarFighter& StarFighter::setModelo ( string modelo )
 {
    this->_modelo = modelo;
+   return *this;
 }
 
 string StarFighter::getModelo ( ) const
@@ -67,9 +68,10 @@ string StarFighter::getModelo ( ) const
    return _modelo;
 }
 
-void StarFighter::setMarca ( string marca )
+StarFighter& StarFighter::setMarca ( string marca )
 {
    this->_marca = marca;
+   return *this;
 }
 
 string StarFighter::getMarca ( ) const
@@ -82,7 +84,7 @@ int StarFighter::getIdSF ( ) const
    return _idSF;
 }
 
-string StarFighter::toCSV ()
+string StarFighter::toCSV () const
 {
    std::stringstream aux;
 
@@ -90,7 +92,7 @@ string StarFighter::toCSV ()
        << _modelo << " ; "
        << _numPlazas;
 
-   return ( aux.str () );
+   return aux.str ();
 }
 
 StarFighter& StarFighter::operator = (const StarFighter& otro)
@@ -102,7 +104,7 @@ StarFighter& StarFighter::operator = (const StarFighter& otro)
       _numPlazas = otro._numPlazas;
    }
    
-   return ( *this );
+   return *this;
 }
 
 void StarFighter::fromCSV (string& datos)

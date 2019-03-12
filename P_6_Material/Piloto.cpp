@@ -10,48 +10,28 @@
 #include <iostream>
 
 #include "Piloto.h"
-#include "Informe.h"
+
+using std::string;
 
 int Piloto::_numPilotos = 0;
 
-Piloto::Piloto ( ): _nombre(""), _nacionalidad(""), _numMisiones(0),
-                    _fechaUltimaMision(0), _incidenciasUltimaMision(""), _nave(0),
-                    _auxiliar(0)
+Piloto::Piloto ( ): Piloto ( "" ) {    
+}
+
+
+Piloto::Piloto ( string nombre ): _nombre (nombre)
 {
    _numPilotos++;
    _idP = _numPilotos;
 }
 
-Piloto::Piloto ( string nombre, string nacionalidad, long fechaUM,
-                 string incidenciasUM, int numMisiones, StarFighter *nave,
-                 Droide *auxiliar ): _nombre (nombre), _nacionalidad (nacionalidad),
-                                     _fechaUltimaMision (fechaUM),
-                                     _incidenciasUltimaMision (incidenciasUM),
-                                     _numMisiones (numMisiones), _nave (nave),
-                                     _auxiliar (auxiliar)
-{
-   if ( numMisiones < 0 )
-   {
-      throw std::invalid_argument ( "Piloto::Piloto: el número de misiones no"
-                                    " puede ser negativo" );
-   }
-   
-   if ( ( numMisiones == 0 ) && ( incidenciasUM != "" ) )
-   {
-      throw std::invalid_argument ( "Piloto::Piloto: un piloto sin misiones no"
-                                    " puede tener incidencias");
-   }
-
-   _numPilotos++;
-   _idP = _numPilotos;
-}
-
-Piloto::Piloto ( const Piloto& orig ): _nombre(orig._nombre),
-                                       _nacionalidad(orig._nacionalidad),
-                                       _numMisiones(orig._numMisiones),
-                                       _fechaUltimaMision(orig._fechaUltimaMision),
-                                       _incidenciasUltimaMision(orig._incidenciasUltimaMision),
-                                       _nave (0), _auxiliar(0)
+Piloto::Piloto ( const Piloto& orig ):
+    _nombre(orig._nombre),
+    _nacionalidad(orig._nacionalidad),
+    _numMisiones(orig._numMisiones),
+    _fechaUltimaMision(orig._fechaUltimaMision),
+    _incidenciasUltimaMision(orig._incidenciasUltimaMision),
+    _nave (nullptr), _auxiliar(nullptr)
 {
    _numPilotos++;
    _idP = _numPilotos;
@@ -59,12 +39,12 @@ Piloto::Piloto ( const Piloto& orig ): _nombre(orig._nombre),
 
 Piloto::~Piloto ( )
 {
-   if ( _nave != 0 )
+   if ( _nave != nullptr )
    {
       std::cerr << "Piloto::~Piloto: se intenta destruir un piloto con nave"
                    " asignada";
    }
-	 if ( _auxiliar != 0 )
+	 if ( _auxiliar != nullptr )
    {
       std::cerr << "Piloto::~Piloto: se intenta destruir un piloto con auxiliar"
                    " asignado";
@@ -75,9 +55,16 @@ Piloto::~Piloto ( )
  * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción
  *       correspondiente. El número de misiones no puede ser <= 0
  */
-void Piloto::setNumMisiones ( int numMisiones )
+Piloto& Piloto::setNumMisiones ( int numMisiones )
 {
-   this->_numMisiones = numMisiones;
+   if ( numMisiones <= 0 )
+   {
+      throw std::invalid_argument ( "Piloto::Piloto: el número de misiones no"
+                                    " puede ser negativo" );
+   }
+
+    this->_numMisiones = numMisiones;
+    return *this;
 }
 
 int Piloto::getNumMisiones ( ) const
@@ -85,9 +72,10 @@ int Piloto::getNumMisiones ( ) const
    return _numMisiones;
 }
 
-void Piloto::setNacionalidad ( string nacionalidad )
+Piloto& Piloto::setNacionalidad ( string nacionalidad )
 {
    this->_nacionalidad = nacionalidad;
+   return *this;
 }
 
 string Piloto::getNacionalidad ( ) const
@@ -95,9 +83,10 @@ string Piloto::getNacionalidad ( ) const
    return _nacionalidad;
 }
 
-void Piloto::setNombre ( string nombre )
+Piloto& Piloto::setNombre ( string nombre )
 {
    this->_nombre = nombre;
+   return *this;
 }
 
 string Piloto::getNombre ( ) const
@@ -114,9 +103,16 @@ int Piloto::getIdP ( ) const
  * @todo Si el número de misiones del piloto es 0, no puede tener incidencias;
  *       haz esta comprobación y lanza la excepción correspondiente
  */
-void Piloto::setIncidenciasUltimaMision ( string incidenciasUltimaMision )
+Piloto& Piloto::setIncidenciasUltimaMision ( string incidenciasUltimaMision )
 {
-   this->_incidenciasUltimaMision = incidenciasUltimaMision;
+   if ( ( _numMisiones == 0 ) && ( _incidenciasUltimaMision != "" ) )
+   {
+      throw std::invalid_argument ( "Piloto::Piloto: un piloto sin misiones no"
+                                    " puede tener incidencias");
+   }
+
+    this->_incidenciasUltimaMision = incidenciasUltimaMision;
+    return *this;
 }
 
 string Piloto::getIncidenciasUltimaMision ( ) const
@@ -129,9 +125,10 @@ string Piloto::getIncidenciasUltimaMision ( ) const
  *       última misión; haz esta comprobación y lanza la excepción
  *       correspondiente
  */
-void Piloto::setFechaUltimaMision ( long fechaUltimaMision )
+Piloto& Piloto::setFechaUltimaMision ( long fechaUltimaMision )
 {
    this->_fechaUltimaMision = fechaUltimaMision;
+   return *this;
 }
 
 /**
@@ -144,7 +141,7 @@ long Piloto::getFechaUltimaMision ( ) const
    return _fechaUltimaMision;
 }
 
-string Piloto::toCSV ()
+string Piloto::toCSV () const
 {
    std::stringstream aux;
 
@@ -154,7 +151,7 @@ string Piloto::toCSV ()
        << _fechaUltimaMision << " ; "
        << _incidenciasUltimaMision;
 
-   return ( aux.str () );
+   return aux.str ();
 }
 
 Piloto& Piloto::operator = ( const Piloto& otro )
@@ -170,12 +167,13 @@ Piloto& Piloto::operator = ( const Piloto& otro )
       _auxiliar = otro._auxiliar;
    }
    
-   return ( *this );
+   return *this ;
 }
 
-void Piloto::setNave ( StarFighter* nave )
+Piloto& Piloto::setNave ( StarFighter* nave )
 {
    this->_nave = nave;
+   return *this;
 }
 
 StarFighter* Piloto::getNave ( ) const
@@ -183,9 +181,10 @@ StarFighter* Piloto::getNave ( ) const
    return _nave;
 }
 
-void Piloto::setAuxiliar ( Droide* auxiliar )
+Piloto& Piloto::setAuxiliar ( Droide* auxiliar )
 {
    this->_auxiliar = auxiliar;
+   return *this;
 }
 
 Droide* Piloto::getAuxiliar ( ) const
@@ -206,7 +205,7 @@ Informe Piloto::generaInforme ()
    nuevo.setFechaEstelar (this->_fechaUltimaMision);
    nuevo.setDatosInforme (aux.str ());
    
-   return ( nuevo );
+   return nuevo ;
 }
 
 void Piloto::fromCSV ( string& datos )

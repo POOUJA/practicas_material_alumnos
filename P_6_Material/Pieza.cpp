@@ -7,6 +7,8 @@
 
 #include "Pieza.h"
 
+using std::string;
+
 /**
  * @todo Hay que comprobar que el peso no sea un valor negativo. Si lo es, se
  *       lanzaría una excepción de tipo std::invalid_argument
@@ -17,8 +19,9 @@ Pieza::Pieza ( string nombre, float peso,
 {
 }
 
-Pieza::Pieza ( const Pieza& orig ): _nombre(orig._nombre), _peso(orig._peso),
-                                    _descripcion(orig._descripcion)
+Pieza::Pieza ( const Pieza& orig ): Pieza ( orig._nombre,
+                                            orig._peso,
+                                            orig._descripcion)
 {
 }
 
@@ -26,9 +29,10 @@ Pieza::~Pieza ( )
 {
 }
 
-void Pieza::setDescripcion ( string descripcion )
+Pieza& Pieza::setDescripcion ( string descripcion )
 {
    this->_descripcion = descripcion;
+   return *this;
 }
 
 string Pieza::getDescripcion ( ) const
@@ -40,9 +44,10 @@ string Pieza::getDescripcion ( ) const
  * @todo Hay que comprobar que el peso no sea un valor negativo. Si lo es, se
  *       lanzaría una excepción de tipo std::invalid_argument
  */
-void Pieza::setPeso ( float peso )
+Pieza& Pieza::setPeso ( float peso )
 {
    this->_peso = peso;
+   return *this;
 }
 
 float Pieza::getPeso ( ) const
@@ -50,9 +55,10 @@ float Pieza::getPeso ( ) const
    return _peso;
 }
 
-void Pieza::setNombre ( string nombre )
+Pieza& Pieza::setNombre ( string nombre )
 {
    this->_nombre = nombre;
+   return *this;
 }
 
 string Pieza::getNombre ( ) const
@@ -62,9 +68,11 @@ string Pieza::getNombre ( ) const
 
 Pieza& Pieza::operator = (const Pieza& orig)
 {
-   _nombre = orig._nombre;
-   _descripcion = orig._descripcion;
-   _peso = orig._peso;
+    if (this!= &orig) {
+        _nombre = orig._nombre;
+        _descripcion = orig._descripcion;
+        _peso = orig._peso;
+    }
    
-   return ( *this );
+   return *this;
 }
