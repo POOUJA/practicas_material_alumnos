@@ -44,6 +44,9 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
       <item path="Droide.cpp" ex="false" tool="1" flavor2="0">
       </item>
