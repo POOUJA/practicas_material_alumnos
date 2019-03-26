@@ -22,7 +22,8 @@ class EquipoMutante
       static const int _MAX_MIEMBROS_ = 10;
 
    public:
-      EquipoMutante ( string nombre="---", string base="---" );
+      EquipoMutante();
+      EquipoMutante ( string nombre, string base );
       EquipoMutante ( const EquipoMutante& orig );
       virtual ~EquipoMutante ( );
       void setNombre ( string nombre );
@@ -39,10 +40,10 @@ class EquipoMutante
       Mutante* sacaMutante(int cual);
 
     private:
-      string _nombre;
-      string _base;
+      string _nombre = "---";
+      string _base = "---";
       Mutante* _miembros[_MAX_MIEMBROS_];
-      int _numMiembros;
+      int _numMiembros = 0;
           
 };
 

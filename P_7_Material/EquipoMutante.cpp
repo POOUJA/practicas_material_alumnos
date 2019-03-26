@@ -11,13 +11,17 @@
 
 #include "EquipoMutante.h"
 
+EquipoMutante::EquipoMutante(): EquipoMutante("---","---")
+{
+}
+
 EquipoMutante::EquipoMutante(string nombre, string base)
     : _nombre(nombre),
     _base(base),
     _numMiembros(0) {
 
     for (int i = 0; i < _MAX_MIEMBROS_; i++) {
-        _miembros[i] = 0;
+        _miembros[i] = nullptr;
     }
 }
 
@@ -34,7 +38,7 @@ EquipoMutante::EquipoMutante(const EquipoMutante& orig)
 EquipoMutante::~EquipoMutante() {
     if (_numMiembros > 0) {
         for (int i = 0; i < _numMiembros; i++) {
-            _miembros[i] = 0;
+            _miembros[i] = nullptr;
         }
     }
 }
@@ -86,7 +90,7 @@ Mutante* EquipoMutante::sacaMutante(int cual) {
     }
 
     aux = _miembros[cual];
-    _miembros[cual] = 0;
+    _miembros[cual] = nullptr;
 
     if (_numMiembros > 1) {
         _miembros[cual] = _miembros[_numMiembros - 1];
