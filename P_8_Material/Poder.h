@@ -10,33 +10,32 @@
 
 #include <string>
 
-using std::string;
-
 /**
  * @brief
  */
 class Poder
 {
    private:
-      string _nombre;
-      string _descripcion;
-      string _afectaA;
-      float _capacidadDestructiva;
+      std::string _nombre = "---";
+      std::string _descripcion = "---";
+      std::string _afectaA = "---";
+      float _capacidadDestructiva = 0;
 
    public:
-      Poder ( string nmb="---", string dsc="---", string aA="---", float cD=0 );
+      Poder () = default;
+      Poder ( std::string nmb, std::string dsc, std::string aA, float cD );
       Poder ( const Poder& orig );
       virtual ~Poder ( );
-      void setNombre ( string nombre );
-      string getNombre ( ) const;
+      void setNombre ( std::string nombre );
+      std::string getNombre ( ) const;
       void setCapacidadDestructiva ( float capacidadDestructiva );
       float getCapacidadDestructiva ( ) const;
-      void setAfectaA ( string afectaA );
-      string getAfectaA ( ) const;
-      void setDescripcion ( string descripcion );
-      string getDescripcion ( ) const;
+      void setAfectaA ( std::string afectaA );
+      std::string getAfectaA ( ) const;
+      void setDescripcion ( std::string descripcion );
+      std::string getDescripcion ( ) const;
 
-       string toCSV () const;
+      std::string toCSV ( ) const;
       Poder& operator= ( const Poder& orig );
       
 };

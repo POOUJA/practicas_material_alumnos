@@ -7,20 +7,24 @@
 
 #include "PoderFisico.h"
 
-PoderFisico::PoderFisico(string nmb, string dsc, string aA, float cD) :
-Poder(nmb, dsc, aA, cD) {
-}
+using std::string;
 
-PoderFisico::PoderFisico(const PoderFisico& orig) : Poder(orig) {
-}
+PoderFisico::PoderFisico ( string nmb, string dsc, string aA, float cD ):
+             Poder ( nmb, dsc, aA, cD )
+{ }
 
-PoderFisico::~PoderFisico() {
-}
+PoderFisico::PoderFisico ( const PoderFisico& orig ): Poder ( orig )
+{ }
 
-PoderFisico& PoderFisico::operator=(const PoderFisico& orig) {
-    if (this != &orig) {
-        this->Poder::operator=(orig);
-    }
+PoderFisico::~PoderFisico ( )
+{ }
 
-    return  *this;
+PoderFisico& PoderFisico::operator= ( const PoderFisico& orig )
+{
+   if ( this != &orig )
+   {
+       this->Poder::operator= ( orig );
+   }
+
+   return  *this;
 }

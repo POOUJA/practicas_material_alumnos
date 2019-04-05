@@ -13,18 +13,19 @@
 /**
  * @brief
  */
-class PoderPsiquico : public Poder {
-public:
-    PoderPsiquico(string nmb = "---", string dsc = "---", string aA = "---",
-            float cD = 0);
-    PoderPsiquico(const PoderPsiquico& orig);
-    virtual ~PoderPsiquico();
-    PoderPsiquico& operator=(const PoderPsiquico& orig);
+class PoderPsiquico : public Poder
+{
+   public:
+      PoderPsiquico ( ) = default;
+      PoderPsiquico ( std::string nmb, std::string dsc, std::string aA, float cD );
+      PoderPsiquico ( const PoderPsiquico& orig );
+      virtual ~PoderPsiquico ( );
+      PoderPsiquico& operator= ( const PoderPsiquico& orig );
 
-    //ToDo, redefinir toCSV y getCapacidadDestructiva
+      //ToDo, redefinir toCSV y getCapacidadDestructiva
 
-    private:
-        //ToDo, añadir lucidez
+   private:
+      //ToDo, añadir lucidez
 };
 
 #endif /* PODERPSIQUICO_H */

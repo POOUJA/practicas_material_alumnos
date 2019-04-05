@@ -16,8 +16,8 @@
 class PoderFisico: public Poder
 {
    public:
-      PoderFisico ( string nmb="---", string dsc="---", string aA="---",
-                    float cD=0 );
+      PoderFisico ( ) = default;
+      PoderFisico ( std::string nmb, std::string dsc, std::string aA, float cD );
       PoderFisico ( const PoderFisico& orig );
       virtual ~PoderFisico ( );
       PoderFisico& operator= ( const PoderFisico& orig );

@@ -9,9 +9,8 @@
 #define EQUIPOMUTANTE_H
 
 #include <string>
-#include "Mutante.h"
 
-using std::string;
+#include "Mutante.h"
 
 /**
  * @brief
@@ -21,30 +20,29 @@ class EquipoMutante
    public:
       static const int _MAX_MIEMBROS_ = 10;
 
+    private:
+      std::string _nombre = "---";
+      std::string _base = "---";
+      Mutante* _miembros[_MAX_MIEMBROS_];
+      int _numMiembros = 0;
+
    public:
-      EquipoMutante ( string nombre="---", string base="---" );
+      EquipoMutante ( );
+      EquipoMutante ( std::string nombre, std::string base );
       EquipoMutante ( const EquipoMutante& orig );
       virtual ~EquipoMutante ( );
-      void setNombre ( string nombre );
-      string getNombre ( ) const;
-      void setBase ( string base );
-      string getBase ( ) const;
+      void setNombre ( std::string nombre );
+      std::string getNombre ( ) const;
+      void setBase ( std::string base );
+      std::string getBase ( ) const;
 
-      string toCSV ();
+      std::string toCSV ( );
       EquipoMutante& operator= ( const EquipoMutante& orig );
 
       void addMutante ( Mutante *m );
       int getNumMiembros ( ) const;
       Mutante* getMutante ( int cual );
-      Mutante* sacaMutante(int cual);
-
-    private:
-      string _nombre;
-      string _base;
-      Mutante* _miembros[_MAX_MIEMBROS_];
-      int _numMiembros;
-          
+      Mutante* sacaMutante ( int cual );
 };
 
 #endif /* EQUIPOMUTANTE_H */
-
