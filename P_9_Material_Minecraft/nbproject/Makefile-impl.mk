@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=pr_10_PtoPartida_Minecraft
+PROJECTNAME=P_9_Material_Minecraft
 
 # Active Configuration
 DEFAULTCONF=Debug

@@ -11,9 +11,6 @@ Item::Item(std::string descripcion)
     :_descripcion(descripcion){
 }
 
-Item::Item(const Item& orig) {
-}
-
 Item::~Item() {
 }
 

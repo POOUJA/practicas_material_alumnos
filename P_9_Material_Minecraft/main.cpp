@@ -1,8 +1,8 @@
-/* 
- * File:   main.cpp
- * Author: jrbalsas
+/** 
+ * @file   main.cpp
+ * @author jrbalsas
  *
- * Created on 15 de abril de 2016, 11:11
+ * @date 15 de abril de 2016
  */
 
 #include <cstdlib>
@@ -14,7 +14,7 @@ using namespace std;
 
 /**Inicializa el vector de items inicial
  * @pre v no contiene punteros inicializados
- * @post crea algunos objetos en el vector e inicializa el resto de elementos a 0
+ * @post crea algunos objetos en el vector e inicializa el resto de elementos a nullptr
  * @return número de posiciones del vector con items creados*/
 int inicializaItems(Item* v[], int tamv) {
     int numItems=0;
@@ -25,9 +25,9 @@ int inicializaItems(Item* v[], int tamv) {
     v[numItems++] = new Item("Espada de madera");   
     v[numItems++] = new Item("Muslo de pollo");       
 
-    //Asigna a 0 el resto de posiciones no ocupadas
+    //Asigna nullptr el resto de posiciones no ocupadas
     for (int i = numItems; i < tamv; i++) {
-        v[i] = 0;
+        v[i] = nullptr;
     }        
     return numItems;
 }
@@ -35,7 +35,7 @@ int inicializaItems(Item* v[], int tamv) {
 void liberaItems(Item* v[], int numItems) {
     for (int i = 0; i < numItems; i++) {
         delete v[i];
-        v[i]=0;
+        v[i]=nullptr;
     }
 
 }

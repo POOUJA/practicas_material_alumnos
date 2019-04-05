@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=pr_10_ptopartida_minecraft
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/pr_10_ptopartida_minecraft
+CND_ARTIFACT_NAME_Debug=p_9_material_minecraft
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/p_9_material_minecraft
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=pr10ptopartidaminecraft.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/pr10ptopartidaminecraft.tar
+CND_PACKAGE_NAME_Debug=p9materialminecraft.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/p9materialminecraft.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=pr_10_ptopartida_minecraft
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/pr_10_ptopartida_minecraft
+CND_ARTIFACT_NAME_Release=p_9_material_minecraft
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/p_9_material_minecraft
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=pr10ptopartidaminecraft.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/pr10ptopartidaminecraft.tar
+CND_PACKAGE_NAME_Release=p9materialminecraft.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/p9materialminecraft.tar
 #
 # include compiler specific variables
 #

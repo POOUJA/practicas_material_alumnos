@@ -13,7 +13,8 @@
 
 class Cofre {
 public:
-    Cofre(int cuantosCaben=27);
+    Cofre();
+    Cofre(int cuantosCaben);
     Cofre(const Cofre& orig);
     virtual ~Cofre();
     int cuantosCaben();
@@ -22,9 +23,9 @@ public:
     Item& consulta(int cual);
     Item* saca(int cual);
 private:
-    int _maxItems; ///< Tamaño del vector de punteros
-    Item* *_items; ///< Vector de punteros creado dinámicamente
-    int _numItems; ///< Primeras posiciones del vector ocupadas (máximo maxItems)
+    int _maxItems = 27; ///< Tamaño del vector de punteros
+    Item* *_items = nullptr; ///< Vector de punteros creado dinámicamente
+    int _numItems = 0; ///< Primeras posiciones del vector ocupadas (máximo maxItems)
 };
 
 #endif /* COFRE_H */
