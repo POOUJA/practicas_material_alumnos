@@ -14,7 +14,8 @@
 */
 class ItemApilable: public Item {
 public:
-    ItemApilable(unsigned int cuantos=1);
+    ItemApilable() = default;
+    ItemApilable(unsigned int cuantos);
     ItemApilable(const ItemApilable& orig);
     virtual ~ItemApilable();
     void incrementaNumElementos(unsigned int cantidad);
@@ -25,7 +26,7 @@ public:
     virtual std::string getDescripcion() const=0;
 
 private:
-    int _numElementos;
+    int _numElementos = 1;
 
 };
 

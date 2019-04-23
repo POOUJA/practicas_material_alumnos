@@ -29,9 +29,9 @@ int inicializaItems(Item* v[], int tamv) {
     v[numItems++] = new Espada();
     v[numItems++] = new Filete();
 
-    //Asigna a 0 el resto de posiciones no ocupadas
+    //Asigna a nullptr el resto de posiciones no ocupadas
     for (int i = numItems; i < tamv; i++) {
-        v[i] = 0;
+        v[i] = nullptr;
     }
     return numItems;
 }
@@ -40,7 +40,7 @@ int inicializaItems(Item* v[], int tamv) {
 void liberaItems(Item* v[], int numItems) {
     for (int i = 0; i < numItems; i++) {
         delete v[i];
-        v[i] = 0;
+        v[i] = nullptr;
     }
 
 }

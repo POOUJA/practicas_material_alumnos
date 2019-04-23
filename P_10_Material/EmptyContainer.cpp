@@ -17,6 +17,6 @@ EmptyContainer::EmptyContainer(const EmptyContainer& orig)
     :std::domain_error(orig) {
 }
 
-EmptyContainer::~EmptyContainer() throw() {
+EmptyContainer::~EmptyContainer() noexcept {
 }
 

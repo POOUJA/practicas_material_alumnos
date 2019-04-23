@@ -12,7 +12,7 @@
 
 class Filete: public Item {
 public:
-    Filete();
+    Filete() = default;
     Filete(const Filete& orig);
     virtual ~Filete();
 

@@ -15,7 +15,7 @@ class EmptyContainer: public std::domain_error {
 public:
     EmptyContainer(std::string error);
     EmptyContainer(const EmptyContainer& orig);
-    virtual ~EmptyContainer() throw();
+    virtual ~EmptyContainer() noexcept;
 private:
 
 };

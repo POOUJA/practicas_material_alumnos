@@ -13,7 +13,8 @@
 /**@Brief Clase base para bloques de construcción*/
 class Bloque: public ItemApilable {
 public:
-    Bloque(unsigned int cuantos=1);
+    Bloque();
+    Bloque(unsigned int cuantos);
     Bloque(const Bloque& orig);
     virtual ~Bloque();
     virtual std::string getDescripcion() const;

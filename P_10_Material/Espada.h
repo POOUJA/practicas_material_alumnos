@@ -17,7 +17,7 @@
 
 class Espada: public Item {
 public:
-    Espada();
+    Espada() = default;
     Espada(const Espada& orig);
     virtual ~Espada();
 

@@ -7,21 +7,21 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=GNU-MacOSX
-CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=pr_11_ptopartida_minecraft
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/pr_11_ptopartida_minecraft
-CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=pr11ptopartidaminecraft.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/pr11ptopartidaminecraft.tar
+CND_PLATFORM_Debug=Cygwin-Windows
+CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
+CND_ARTIFACT_NAME_Debug=p_10_material
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/p_10_material
+CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
+CND_PACKAGE_NAME_Debug=p10material.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/p10material.tar
 # Release configuration
-CND_PLATFORM_Release=GNU-MacOSX
-CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=pr_11_ptopartida_minecraft
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/pr_11_ptopartida_minecraft
-CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=pr11ptopartidaminecraft.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/pr11ptopartidaminecraft.tar
+CND_PLATFORM_Release=Cygwin-Windows
+CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
+CND_ARTIFACT_NAME_Release=p_10_material
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/p_10_material
+CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
+CND_PACKAGE_NAME_Release=p10material.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/p10material.tar
 #
 # include compiler specific variables
 #

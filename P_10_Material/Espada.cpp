@@ -7,9 +7,6 @@
 
 #include "Espada.h"
 
-Espada::Espada() {
-}
-
 Espada::Espada(const Espada& orig) {
 }
 

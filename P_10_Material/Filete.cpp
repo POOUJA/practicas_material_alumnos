@@ -7,9 +7,6 @@
 
 #include "Filete.h"
 
-Filete::Filete() {
-}
-
 Filete::Filete(const Filete& orig) {
 }
 

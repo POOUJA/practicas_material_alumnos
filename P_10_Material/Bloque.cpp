@@ -9,6 +9,10 @@
 
 #include <sstream>
 
+Bloque::Bloque()
+    :Bloque(1){
+}
+
 Bloque::Bloque(unsigned int cuantos)
     :ItemApilable(cuantos){
 }

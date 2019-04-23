@@ -9,13 +9,17 @@
 #include "EmptyContainer.h"
 #include <stdexcept>
 
+Cofre::Cofre(): Cofre(27)
+{
+}
+
 Cofre::Cofre(int cuantosCaben)
     :_maxItems(cuantosCaben)
     ,_numItems(0) {
     
     _items=new Item*[cuantosCaben];
     for (int i = 0; i < cuantosCaben; i++) {
-        _items[i]=0;
+        _items[i]=nullptr;
     }
 }
 
@@ -26,7 +30,7 @@ Cofre::Cofre(const Cofre& orig)
 
     _items=new Item*[_maxItems];
     for (int i = 0; i < _maxItems; i++) {
-        _items[i]=0;
+        _items[i]=nullptr;
     }
 }
 
