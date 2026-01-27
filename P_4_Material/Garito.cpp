@@ -1,5 +1,5 @@
 /**
- * @brief Implementaci髇 de la clase Garito
+ * @brief Implementaci贸n de la clase Garito
  * @file Garito.cpp
  * @author Victor M. Rivas Santos <vrivas@ujaen.es>
  * @date 12 de octubre de 2015, 17:51
@@ -8,25 +8,30 @@
 #include "Garito.h"
 
 /**
- * @brief Constructor parametrizado de la clase
+ * @brief Constructor por defecto de la clase
  * @param nombre Nombre del garito
  * @param direccion Direccion del garito
  * @post Crea un nuevo objeto de la clase Garito
+ * @throw std::string Si el nombre tiene menos de 3 caracteres o la direcci贸n es una cadena vac铆a
  */
 Garito::Garito(std::string nombre, std::string direccion) :
-_nombre(nombre)
-, _direccion(direccion) {
+    _nombre(nombre),
+    _direccion(direccion) {
+        if ( nombre.length() < 3 )
+            throw std::string ( "[Garito::Garito] El nombre debe tener al menos 3 caracteres" );
+        if ( direccion == "" )
+            throw std::string ( "[Garito::Garito] Se intenta asignar una direcci贸n vac铆a" );
 }
 
 /**
  * @brief Constructor de copia de la clase
- * @param orig Objeto de tipo garito del que se copiar醤 los datos
+ * @param orig Objeto de tipo garito del que se copiar谩n los datos
  * @post Crea un nuevo objeto de la clase Garito
  */
 
 Garito::Garito(const Garito& orig) :
-_nombre(orig._nombre)
-, _direccion(orig._direccion) {
+    _nombre(orig._nombre),
+    _direccion(orig._direccion) {
 }
 
 /**
@@ -37,20 +42,21 @@ Garito::~Garito() {
 }
 
 /**
- * @brief Modifica la direcci髇 del Garito
- * @param direccion Nueva direcci髇
- * @post Modifica la direcci髇 del Garito
+ * @brief Modifica la direcci贸n del Garito
+ * @param direccion Nueva direcci贸n
+ * @post Modifica la direcci贸n del Garito
+ * @throw std::string Si la direcci贸n es una cadena vac铆a
  */
 void Garito::setDireccion(std::string direccion) {
    if ( direccion == "" )
-      throw std::string ( "Se intenta asignar una direcci髇 vac韆" );
+      throw std::string ( "Se intenta asignar una direcci贸n vac铆a" );
 
    this->_direccion = direccion;
 }
 
 /**
- * @brief Devuelve la direcci髇 del garito
- * @post Devuelve la direcci髇 del garito
+ * @brief Devuelve la direcci贸n del garito
+ * @post Devuelve la direcci贸n del garito
  */
 std::string Garito::getDireccion() const {
     return _direccion;
@@ -60,10 +66,11 @@ std::string Garito::getDireccion() const {
  * @brief Modifica el nombre del garito
  * @param nombre Nuevo nombre para el garito
  * @post Modifica el nombre del garito
+ * @throw std::string Si el nombre tiene menos de 3 caracteres
  */
 void Garito::setNombre(std::string nombre) {
-   if ( nombre == "" )
-      throw std::string ( "Se intenta asignar una direcci髇 vac韆" );
+   if ( nombre.length() < 3 )
+      throw std::string ( "[Garito::setNombre] El nombre debe tener al menos 3 caracteres" );
 
    this->_nombre = nombre;
 }

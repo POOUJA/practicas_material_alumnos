@@ -15,8 +15,7 @@
 namespace djutils {
     void mostrarTemazo( const Temazo& temazo, std::string prefijo="" );
     void mostrarGarito( const Garito& garito, std::string prefijo="" );
-    void mostrarFecha( const Fecha& fecha, std::string prefijo="" );
-    void pedirGarito( Garito& garito);
+    void mostrarFecha( const Fecha& fecha, std::string prefijo="" );    
 }
 
 

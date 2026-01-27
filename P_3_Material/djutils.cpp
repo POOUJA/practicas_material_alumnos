@@ -29,14 +29,3 @@ void djutils::mostrarFecha(const Fecha& fecha,std::string prefijo) {
               << prefijo << " - Año: " << fecha.getAnio() << std::endl;
 
 }
-
-void djutils::pedirGarito(Garito& garito) {
-    std::string tmp;
-    std::cout << "INTRODUZCA LOS DATOS DEL GARITO: " << std::endl
-              << " - Nombre del garito: ";
-    getline(std::cin, tmp);
-    garito.setNombre(tmp);
-    std::cout << " - Dirección del garito: ";
-    getline(std::cin, tmp);
-    garito.setDireccion(tmp);
-}

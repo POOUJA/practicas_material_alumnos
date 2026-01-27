@@ -18,3 +18,6 @@
 
 #sample applications temp files
 **/*.csv
+
+#vscode
+**/.vscode/
