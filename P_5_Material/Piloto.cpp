@@ -76,11 +76,11 @@ int Piloto::getIdP ( ) const
 }
 
 /**
- * @todo Si el número de misiones del piloto es 0, no puede tener incidencias;
- *       haz esta comprobación y lanza la excepción correspondiente
- */
+ * @pre El número de misiones del piloto debe ser mayor que 0, en otro caso, no puede tener incidencias
+  */
 void Piloto::setIncidenciasUltimaMision ( string incidenciasUltimaMision )
 {
+     // TODO: verificar precondición utilizando assert
    this->_incidenciasUltimaMision = incidenciasUltimaMision;
 }
 
@@ -90,22 +90,22 @@ string Piloto::getIncidenciasUltimaMision ( ) const
 }
 
 /**
- * @todo Si el número de misiones del piloto es 0, no puede tener fecha de
- *       última misión; haz esta comprobación y lanza la excepción
- *       correspondiente
+ * @pre El número de misiones del piloto debe ser mayor que 0, en otro caso, no puede tener fecha de
+ *       última misión
  */
 void Piloto::setFechaUltimaMision ( long fechaUltimaMision )
 {
+   // TODO: verificar precondición utilizando assert
    this->_fechaUltimaMision = fechaUltimaMision;
 }
 
 /**
- * @todo Si el número de misiones del piloto es 0, no puede tener fecha de
- *       última misión; haz esta comprobación y lanza la excepción
- *       correspondiente
+ * @pre El número de misiones del piloto debe ser mayor que 0, en otro caso, no puede tener fecha de
+ *       última misión
  */
 long Piloto::getFechaUltimaMision ( ) const
 {
+   // TODO: verificar precondición utilizando assert
    return _fechaUltimaMision;
 }
 
