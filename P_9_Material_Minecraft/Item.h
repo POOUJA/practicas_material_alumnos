@@ -15,7 +15,8 @@ public:
     Item() = default;
     Item(std::string descripcion);
     Item(const Item& orig) = default;
-    virtual ~Item();
+    virtual ~Item() = default;
+    
     void setDescripcion(std::string descripcion);
     std::string getDescripcion() const;
 private:

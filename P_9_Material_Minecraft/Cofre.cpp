@@ -15,10 +15,8 @@ Cofre::Cofre(int cuantosCaben)
     :_maxItems(cuantosCaben)
     ,_numItems(0) {
     
-    _items=new Item*[cuantosCaben];
-    for (int i = 0; i < cuantosCaben; i++) {
-        _items[i]=nullptr;
-    }
+    //Reservamos memoria para el vector de punteros a Item e inicializamos todas las posiciones a nullptr
+    _items=new Item*[cuantosCaben]{};
 }
 
 /**Crea un Cofre vacío del mismo tamaño del original*/
@@ -26,10 +24,8 @@ Cofre::Cofre(const Cofre& orig)
     :_maxItems(orig._maxItems)
     ,_numItems(orig._numItems) {
 
-    _items=new Item*[_maxItems];
-    for (int i = 0; i < _maxItems; i++) {
-        _items[i]=nullptr;
-    }
+    //Todas las posiciones del nuevo cofre se inicializan a nullptr
+    _items=new Item*[_maxItems]{};
 }
 
 Cofre::~Cofre() {
@@ -68,7 +64,10 @@ Item* Cofre::saca(int cual) {
         throw std::out_of_range("[Cofre::mete] El elemento indicado no existe");
     Item* elemento = _items[cual-1];
     _numItems--;
-    if (_numItems>0)
+    if (_numItems>0) {
+        //El último item pasa a ocupar la posición del item extraído
         _items[cual-1]=_items[_numItems];
+        _items[_numItems]=nullptr;
+    }
     return elemento;
 }
