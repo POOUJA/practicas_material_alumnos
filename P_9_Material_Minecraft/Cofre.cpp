@@ -29,6 +29,8 @@ Cofre::Cofre(const Cofre& orig)
 }
 
 Cofre::~Cofre() {
+    //Liberamos el bloque de memoria del vector de punteros a Item.
+    //No se liberan los items a los que apuntan los punteros ya que es una agregación
     delete [] _items;
     _numItems=0;
 }

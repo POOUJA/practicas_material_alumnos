@@ -15,7 +15,7 @@
 
 using namespace std;
 
-/**Crea algunos items en un vector de punteros a Item
+/** Crea algunos items en un vector de punteros a Item
  * 
  * @pre v está vacío, es decir,el vector está inicializado  todos sus punteros son nullptr
  * @pre tamv es mayor o igual a 5
@@ -42,13 +42,13 @@ int generaItems(Item* v[], int tamv) {
 
     return numItems;
 }
+
 /** Libera los items del vector creados en memoria dinámica*/
 void liberaItems(Item* v[], int numItems) {
     for (int i = 0; i < numItems; i++) {
         delete v[i];
         v[i]=nullptr;
     }
-
 }
 
 void visualiza(Cofre &c) {
@@ -58,12 +58,9 @@ void visualiza(Cofre &c) {
         std::cout << i <<".- "
                   << c.consulta(i).getDescripcion() << std::endl;
     }
-
 }
 
-
 /** @brief Probando los Cofres
- * 
  */
 int main(int argc, char** argv) {
 
