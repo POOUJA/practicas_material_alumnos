@@ -6,17 +6,30 @@
  */
 
 #include <cstdlib>
+#include <algorithm>
 #include <iostream>
+#include <cassert>
 
 #include "Cofre.h"
 #include "Item.h"
+
 using namespace std;
 
-/**Inicializa el vector de items inicial
- * @pre v no contiene punteros inicializados
- * @post crea algunos objetos en el vector e inicializa el resto de elementos a nullptr
- * @return número de posiciones del vector con items creados*/
-int inicializaItems(Item* v[], int tamv) {
+/**Crea algunos items en un vector de punteros a Item
+ * 
+ * @pre v está vacío, es decir, todos sus punteros son nullptr
+ * @pre tamv es mayor o igual a 5
+ * @post crea algunos items en memoria dinámica y los coloca en las primeras posiciones del vector
+ * @return número de posiciones iniciales del vector donde se han colocado los items creados
+ * @note los items creados deben ser liberados cuando ya no se necesiten para evitar fugas de memoria
+ */
+int generaItems(Item* v[], int tamv) {
+	
+	assert(tamv>=5);
+	/* la plantilla de función all_off devuelve true si todos ls valores de una secuencia
+       satisfacen un predicado (función que devuelve un valor booleano) */
+    assert( std::all_of(v, v+tamv, [] (Item* val) {return val==nullptr;} ) );        
+
     int numItems=0;
 
     v[numItems++] = new Item("Bloque de tierra (5)");
@@ -25,10 +38,8 @@ int inicializaItems(Item* v[], int tamv) {
     v[numItems++] = new Item("Espada de madera");   
     v[numItems++] = new Item("Muslo de pollo");       
 
-    //Asigna nullptr el resto de posiciones no ocupadas
-    for (int i = numItems; i < tamv; i++) {
-        v[i] = nullptr;
-    }        
+    //El resto de posiciones no se modifican
+
     return numItems;
 }
 /**Libera los items del vector creados en memoria dinámica*/
@@ -57,10 +68,10 @@ void visualiza(Cofre &c) {
 int main(int argc, char** argv) {
 
     const int MAXITEMS=10;
-    Item* objetos[MAXITEMS];
+    Item* objetos[MAXITEMS]{nullptr}; //inicialización uniforme de todas las posiciones a nullptr
 
-    //Inicializamos algunos objetos de prueba
-    int numObjetos=inicializaItems(objetos,MAXITEMS);
+    //Creamos algunos objetos de prueba
+    int numObjetos=generaItems(objetos,MAXITEMS);
 
     Cofre c; //Creamos un cofre con 27 posiciones
     
