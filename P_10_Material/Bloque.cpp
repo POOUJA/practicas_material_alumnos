@@ -21,9 +21,6 @@ Bloque::Bloque(const Bloque& orig)
     :ItemApilable(orig){
 }
 
-Bloque::~Bloque() {
-}
-
 std::string Bloque::getDescripcion() const {
     std::stringstream ss;
     

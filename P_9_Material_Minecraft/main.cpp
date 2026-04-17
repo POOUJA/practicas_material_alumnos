@@ -26,7 +26,7 @@ using namespace std;
 int generaItems(Item* v[], int tamv) {
 	
 	assert(tamv>=5);
-	/* la plantilla de función all_off devuelve true si todos ls valores de una secuencia
+	/* la plantilla de función all_of devuelve true si todos ls valores de una secuencia
        satisfacen un predicado (función que devuelve un valor booleano) */
     assert( std::all_of(v, v+tamv, [] (Item* val) {return val==nullptr;} ) );        
 

@@ -16,7 +16,8 @@ public:
     Bloque();
     Bloque(unsigned int cuantos);
     Bloque(const Bloque& orig);
-    virtual ~Bloque();
+    virtual ~Bloque() = default;
+    
     virtual std::string getDescripcion() const;
 private:
     

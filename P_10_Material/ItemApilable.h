@@ -10,14 +10,15 @@
 
 #include "Item.h"
 
-/**@brief Clase abstracta para objetos apilables
+/** @brief Clase abstracta para objetos apilables
 */
 class ItemApilable: public Item {
 public:
     ItemApilable() = default;
     ItemApilable(unsigned int cuantos);
     ItemApilable(const ItemApilable& orig);
-    virtual ~ItemApilable();
+    virtual ~ItemApilable() = default;
+
     void incrementaNumElementos(unsigned int cantidad);
     void decrementaNumElementos(unsigned int cantidad);
     unsigned int getNumElementos() const;

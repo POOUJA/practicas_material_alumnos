@@ -18,8 +18,8 @@
 class Espada: public Item {
 public:
     Espada() = default;
-    Espada(const Espada& orig);
-    virtual ~Espada();
+    Espada(const Espada& orig) = default;
+    virtual ~Espada() = default;
 
     virtual std::string getDescripcion() const;
 

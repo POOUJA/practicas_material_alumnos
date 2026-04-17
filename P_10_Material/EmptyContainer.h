@@ -10,13 +10,12 @@
 
 #include <stdexcept>
 
-/**@brief Excepción para indicar intentos de extracción sobre un contenedor  vacío*/
+/** @brief Excepción para indicar intentos de extracción sobre un contenedor  vacío*/
 class EmptyContainer: public std::domain_error {
 public:
-    EmptyContainer(std::string error);
-    EmptyContainer(const EmptyContainer& orig);
-    virtual ~EmptyContainer() noexcept;
-private:
+    EmptyContainer(std::string error):std::domain_error(error) { };
+    EmptyContainer(const EmptyContainer& orig) = default;
+    virtual ~EmptyContainer() noexcept = default;
 
 };
 
