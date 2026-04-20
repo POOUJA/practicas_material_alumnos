@@ -26,17 +26,17 @@ using namespace std;
 int generaItems(Item* v[], int tamv) {
 	
 	assert(tamv>=5);
-	/* la plantilla de función all_off devuelve true si todos ls valores de una secuencia
+	/* la plantilla de función all_of devuelve true si todos ls valores de una secuencia
        satisfacen un predicado (función que devuelve un valor booleano) */
     assert( std::all_of(v, v+tamv, [] (Item* val) {return val==nullptr;} ) );        
 
     int numItems=0;
 
-    v[numItems++] = new Item("Bloque de tierra (5)");
-    v[numItems++] = new Item("Bloque de tierra (8)");
-    v[numItems++] = new Item("Bloque de tierra (1)");    
-    v[numItems++] = new Item("Espada de madera");   
-    v[numItems++] = new Item("Muslo de pollo");       
+    v[numItems++] = new Item("🟫 Bloque de tierra (5)");
+    v[numItems++] = new Item("🟫 Bloque de tierra (8)");
+    v[numItems++] = new Item("🟫 Bloque de tierra (1)");    
+    v[numItems++] = new Item("🗡️ Espada de madera");   
+    v[numItems++] = new Item("🍗 Muslo de pollo");       
 
     //El resto de posiciones no se modifican
 
@@ -52,7 +52,7 @@ void liberaItems(Item* v[], int numItems) {
 }
 
 void visualiza(Cofre &c) {
-    std::cout << "CONTENIDO DEL COFRE" << std::endl
+    std::cout << "CONTENIDO DEL COFRE 📦" << std::endl
               << "===================" << std::endl;
     for (int i = 1; i <= c.cuantosHay(); i++) {
         std::cout << i <<".- "

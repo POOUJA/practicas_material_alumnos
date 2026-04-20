@@ -20,9 +20,6 @@ ItemApilable::ItemApilable(const ItemApilable& orig)
 {
 }
 
-ItemApilable::~ItemApilable() {
-}
-
 void ItemApilable::incrementaNumElementos(unsigned int cantidad) {
     if (_numElementos+cantidad>64) throw std::out_of_range("[ItemApilabre::decrementaNumElementos] Un item apilable no puede tener más de 64 unidades");    
     this->_numElementos+= cantidad;

@@ -13,12 +13,10 @@
 class Filete: public Item {
 public:
     Filete() = default;
-    Filete(const Filete& orig);
-    virtual ~Filete();
+    Filete(const Filete& orig) = default;
+    virtual ~Filete() = default;
 
     virtual std::string getDescripcion() const;
-
-private:
 
 };
 

@@ -10,11 +10,11 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-/**@brief Interfaz de objetos del juego*/
+/** @brief Interfaz de objetos del juego*/
 class Item {
 public:
     virtual std::string getDescripcion() const=0;
-    virtual ~Item() {};
+    virtual ~Item() = default;
 };
 
 #endif /* ITEM_H */

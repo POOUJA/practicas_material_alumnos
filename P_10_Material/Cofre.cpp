@@ -17,25 +17,24 @@ Cofre::Cofre(int cuantosCaben)
     :_maxItems(cuantosCaben)
     ,_numItems(0) {
     
-    _items=new Item*[cuantosCaben];
-    for (int i = 0; i < cuantosCaben; i++) {
-        _items[i]=nullptr;
-    }
+    //Reservamos memoria para el vector de punteros a Item e inicializamos todas las posiciones a nullptr
+    _items=new Item*[cuantosCaben]{};
 }
 
-/**Crea un Cofre vacío del mismo tamaño del original*/
+/** Crea un Cofre vacío del mismo tamaño del original*/
 Cofre::Cofre(const Cofre& orig) 
     :_maxItems(orig._maxItems)
     ,_numItems(orig._numItems) {
 
-    _items=new Item*[_maxItems];
-    for (int i = 0; i < _maxItems; i++) {
-        _items[i]=nullptr;
-    }
+    //Todas las posiciones del nuevo cofre se inicializan a nullptr
+    _items=new Item*[_maxItems]{};
 }
 
 Cofre::~Cofre() {
+    //Liberamos el bloque de memoria del vector de punteros a Item.
+    //No se liberan los items a los que apuntan los punteros ya que es una agregación
     delete [] _items;
+    _numItems=0;
 }
 
 int Cofre::cuantosHay() const {
@@ -54,10 +53,13 @@ void Cofre::mete(Item* item) {
     _items[_numItems++]=item;
 }
 
-/**@param cual nº orden del elemento a consultar
- * @return Referencia al objeto indicado del cofre
-   @throw std::out_of_range si el elemento no existe
-   @throw EmptyContainer si el cofre está vacío*/
+/** Devuelve una referencia al Item indicado del cofre
+
+  @param cual nº orden del elemento a consultar
+  @return Referencia al objeto indicado del cofre
+  @throw std::out_of_range si el elemento no existe
+  @throw EmptyContainer si el cofre está vacío
+*/
 Item& Cofre::consulta(int cual) {
     if (_numItems==0) 
         throw EmptyContainer("[Cofre::consulta] El cofre está vacío");
@@ -67,10 +69,14 @@ Item& Cofre::consulta(int cual) {
 }
 
 
-/**@param cual nº orden del elemento a extraer
- * @return Extrae del cofre y devuelve el puntero al Item indicado
-   @throw std::out_of_range si el elemento no existe
-   @throw EmptyContainer si el cofre está vacío*/
+/** Extrae el Item indicado del cofre
+
+   @param cual nº orden del elemento a extraer
+   @post extrae y devuelve el item indicado del cofre. El nº de orden de los items restantes pueden variar.
+   @return devuelve el puntero al Item indicado
+   @throw std::out_of_range si el elemento no exist
+   @throw EmptyContainer si el cofre está vací
+*/
 Item* Cofre::saca(int cual) {
     if (_numItems==0) 
         throw EmptyContainer("[Cofre::saca] El cofre está vacío");
@@ -78,7 +84,10 @@ Item* Cofre::saca(int cual) {
         throw std::out_of_range("[Cofre::mete] El elemento indicado no existe");
     Item* elemento = _items[cual-1];
     _numItems--;
-    if (_numItems>0)
+    if (_numItems>0) {
+        //El último item pasa a ocupar la posición del item extraído
         _items[cual-1]=_items[_numItems];
+        _items[_numItems]=nullptr;
+    }
     return elemento;
 }
