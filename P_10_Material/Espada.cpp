@@ -8,5 +8,5 @@
 #include "Espada.h"
 
 std::string Espada::getDescripcion() const {
-    return "Espada";
+    return "🗡️ Espada";
 }

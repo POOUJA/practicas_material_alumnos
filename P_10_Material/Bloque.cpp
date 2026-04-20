@@ -24,7 +24,7 @@ Bloque::Bloque(const Bloque& orig)
 std::string Bloque::getDescripcion() const {
     std::stringstream ss;
     
-    ss << "Bloque de tierra (" 
+    ss << "🟫  Bloque de tierra (" 
        << getNumElementos() << ") ";
        
     

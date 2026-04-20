@@ -55,7 +55,7 @@ void liberaItems(Item* v[], int numItems) {
 }
 
 void visualiza(Cofre &c) {
-    std::cout << "CONTENIDO DEL COFRE" << std::endl
+    std::cout << "CONTENIDO DEL COFRE 📦" << std::endl
             << "===================" << std::endl;
     for (int i = 1; i <= c.cuantosHay(); i++) {
         std::cout << i << ".- "
@@ -95,7 +95,7 @@ int main(int argc, char** argv) {
         
     } catch (std::exception &e) {
         //Capturamos cualquier excepción que se haya podido escapar
-        //en durante el desarrollo
+        //durante el desarrollo
         std::cerr << "Finalización del programa por excepción sin capturar: "
                 << e.what() << std::endl;
     }

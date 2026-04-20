@@ -8,5 +8,5 @@
 #include "Filete.h"
 
 std::string Filete::getDescripcion() const {
-    return "Filete";
+    return "🥩 Filete";
 }
